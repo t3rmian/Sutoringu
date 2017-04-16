@@ -12,9 +12,17 @@ body {
 #game {
     display: table-cell;
     vertical-align: middle;
+    text-align: center;
 }
 
 canvas {
     display: block;
     margin: auto;
+}
+
+#textInput {
+    margin-top: 8px;
+    padding: 4px;
+    font-size: 24px;
+    text-align: center;
 }
