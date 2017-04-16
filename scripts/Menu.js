@@ -10,7 +10,7 @@
 
     Sutoringu.Menu.prototype = {
         create: function () {
-            this.game.state.start('Play');
+            this.game.state.start('Preload');
         }
     }
 

@@ -7,10 +7,10 @@
     Sutoringu.Play = function (game) {
         this.game = game;
         this.gravity = 1000;
-        this.textSprites = [];
+        this.dictionary = [];
+        this.loadedDictionary = null;
         this.platforms = null;
         this.texts = null;
-
         this.score = 0;
         this.scoreText = null;
     };
@@ -18,9 +18,17 @@
     function updateScore(newScore) {
         this.score = newScore;
         this.scoreText.text = 'Score: ' + this.score;
+        if (this.loadedDictionary.length <= 0 && this.dictionary.length <= 0) {
+            this.game.state.start('GameOver', true, false, this.score);
+        }
     }
 
     Sutoringu.Play.prototype = {
+
+        init: function(dictionary) {
+            this.loadedDictionary = dictionary;
+            this.score = 0;
+        },
 
         preload: function () {
             this.game.load.image('floor', 'assets/floor.png');
@@ -54,16 +62,22 @@
             }
 
             function startGeneratingWords() {
+                if (this.loadedDictionary.length <= 0) {
+                    return;
+                }
                 this.game.physics.startSystem(Phaser.Physics.ARCADE);
+                let entry = this.loadedDictionary[0];
+                this.loadedDictionary.splice(0, 1);
                 const textStyle = {font: "32px Arial", fill: "#ff0044", backgroundColor: "#ffff00"};
-                const text = this.game.add.text(Math.random() * this.game.width, 0, "ABC", textStyle);
+                const text = this.game.add.text(Math.random() * this.game.width, 0, entry.string, textStyle);
                 text.anchor.setTo(0, 0);
                 const textSprite = this.texts.create(0, 0, null);
                 textSprite.addChildAt(text, 0);
                 textSprite.body.bounce.y = 0.4;
                 textSprite.body.gravity.y = this.gravity;
                 textSprite.body.collideWorldBounds = true;
-                this.textSprites.push(textSprite);
+                entry.textSprite = textSprite;
+                this.dictionary.push(entry);
                 this.game.time.events.add(Phaser.Timer.SECOND * (1 + Math.random()), startGeneratingWords, this);
             }
         },
@@ -75,17 +89,22 @@
             function collisionHandler(textSprite, platform) {
                 if (textSprite.body.touching.down && Math.abs(textSprite.body.velocity.y) < 9) {
                     textSprite.kill();
-                    this.textSprites.splice(this.textSprites.indexOf(textSprite), 1);
+                    for (let i = 0; i < this.dictionary.length; i++) {
+                        if (this.dictionary[i].textSprite === textSprite) {
+                            this.dictionary.splice(i, 1);
+                            break;
+                        }
+                    }
                     updateScore.call(this, this.score - 10);
                 }
             }
         },
 
         removeText: function (text) {
-            for (let i = 0; i < this.textSprites.length; i++) {
-                if (this.textSprites[i].getChildAt(0).text.toLowerCase() === text.toLowerCase()) {
-                    this.textSprites[i].kill();
-                    this.textSprites.splice(i, 1);
+            for (let i = 0; i < this.dictionary.length; i++) {
+                if (this.dictionary[i].text.toLowerCase() === text.toLowerCase()) {
+                    this.dictionary[i].textSprite.kill();
+                    this.dictionary.splice(i, 1);
                     updateScore.call(this, this.score + 10);
                     return true;
                 }
