@@ -13,6 +13,7 @@
         this.texts = null;
         this.score = 0;
         this.scoreText = null;
+        this.textInput = null;
     };
 
     function updateScore(newScore) {
@@ -25,7 +26,7 @@
 
     Sutoringu.Play.prototype = {
 
-        init: function(dictionary) {
+        init: function (dictionary) {
             this.loadedDictionary = dictionary;
             this.score = 0;
         },
@@ -35,13 +36,18 @@
         },
 
         create: function () {
+            this.textInput = this.game.state.states['Boot'].textInput;
             setUpBackground(this.game);
             setUpFloor(this);
             setUpTexts(this);
             this.game.time.events.add(Phaser.Timer.SECOND, startGeneratingWords, this);
 
             function setUpBackground(game) {
-                game.stage.backgroundColor = Phaser.Color.getRandomColor(0, 255, 255);
+                game.stage.backgroundColor = 0xffffff;
+                const sakuraCanvas = game.make.bitmapData(game.world.width, game.world.height);
+                sakuraCanvas.ctx.globalAlpha = 0.5;
+                new Sakura(sakuraCanvas, '#ff000000', '#ffa7c5').create().paint();
+                sakuraCanvas.addToWorld();
             }
 
             function setUpFloor(play) {
@@ -52,6 +58,7 @@
                     const ground = play.platforms.create(x * 32, play.game.world.height - 32, 'floor');
                     ground.body.immovable = true;
                     ground.anchor.setTo(0, 0);
+                    ground.tint = 0x000000;
                 }
             }
 
@@ -68,11 +75,12 @@
                 this.game.physics.startSystem(Phaser.Physics.ARCADE);
                 let entry = this.loadedDictionary[0];
                 this.loadedDictionary.splice(0, 1);
-                const textStyle = {font: "32px Arial", fill: "#ff0044", backgroundColor: "#ffff00"};
-                const text = this.game.add.text(Math.random() * this.game.width, 0, entry.string, textStyle);
+                const textStyle = {font: "32px Arial", fill: "#ff0044", fontStyle: "bold"};
+                const text = this.game.add.text(0, 0, entry.string, textStyle);
                 text.anchor.setTo(0, 0);
                 const textSprite = this.texts.create(0, 0, null);
                 textSprite.addChildAt(text, 0);
+                textSprite.x = Math.random() * (this.game.width - text.width);
                 textSprite.body.bounce.y = 0.4;
                 textSprite.body.gravity.y = this.gravity;
                 textSprite.body.collideWorldBounds = true;
@@ -84,6 +92,11 @@
 
 
         update: function () {
+            const textToRemove = this.textInput.value;
+            const isRemoved = this.removeText(textToRemove);
+            if (isRemoved) {
+                this.textInput.value = "";
+            }
             this.game.physics.arcade.collide(this.texts, this.platforms, collisionHandler, null, this);
 
             function collisionHandler(textSprite, platform) {

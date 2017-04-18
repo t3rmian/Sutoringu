@@ -32,7 +32,6 @@
             restart.events.onInputDown.add(onRestartPress, this)
 
             function onRestartPress() {
-                console.log("pressed");
                 this.game.state.start('Preload');
             }
         }

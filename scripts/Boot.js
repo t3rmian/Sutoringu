@@ -12,7 +12,7 @@
     Sutoringu.Boot.prototype = {
         create: function () {
             this.textInput = document.getElementById("textInput");
-            this.textInput.addEventListener("keypress", this.onKeyPressed.bind(this));
+            this.textInput.addEventListener("keydown", this.onKeyPressed.bind(this));
             swapWithCanvas(this.textInput);
             this.textInput.focus();
             this.game.state.start('Menu');
@@ -26,11 +26,15 @@
 
         onKeyPressed: function (e) {
             "use strict";
-            const code = (e.keyCode ? e.keyCode : e.which);
-            if (code === 13) {
-                const text = this.textInput.value;
-                const state = this.game.state.current;
-                if (state === 'Play') {
+            const state = this.game.state.current;
+            if (state === 'Play') {
+                const code = (e.keyCode ? e.keyCode : e.which);
+                if (code === 27) {
+                    this.textInput.value = "";
+                }
+                else if (code === 13) {
+                    console.log(this.textInput.value);
+                    const text = this.textInput.value;
                     const removed = this.game.state.states[state].removeText(text);
                     if (removed) {
                         this.textInput.value = "";
