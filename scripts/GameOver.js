@@ -10,29 +10,42 @@
     };
 
     Sutoringu.GameOver.prototype = {
-
         init: function (score) {
             this.score = score;
         },
 
-        create: function () {
-            this.game.add.text(this.game.width / 2, this.game.height / 2, 'GAME OVER!', {
-                fontSize: '32px',
-                fill: '#000'
-            });
-            this.game.add.text(this.game.width / 2, this.game.height / 2 + 64, 'Score: ' + this.score, {
-                fontSize: '32px',
-                fill: '#000'
-            });
-            let restart = this.game.add.text(this.game.width / 2, this.game.height / 2 + 2 * 64, 'Restart', {
-                fontSize: '32px',
-                fill: '#000'
-            });
-            restart.inputEnabled = true;
-            restart.events.onInputDown.add(onRestartPress, this)
+        preload: function () {
+            this.game.load.spritesheet('button', 'assets/button.png', 384, 64);
+        },
 
-            function onRestartPress() {
+        create: function () {
+            let horizontalCenter = this.game.width / 2;
+            let gameOver = this.game.add.text(horizontalCenter, 16, 'GAME OVER!', {
+                fontSize: '32px',
+                fill: '#000'
+            });
+            gameOver.anchor.setTo(0.5, 0);
+
+            let scoreLabel = 'Score: ';
+            let score = this.game.add.text(horizontalCenter, 16 + 32 + 16, scoreLabel + this.score, {
+                fontSize: '32px',
+                fill: '#000'
+            });
+            score.anchor.setTo(0.5, 0);
+            score.addColor('pink', scoreLabel.length);
+
+            let verticalCenter = this.game.height / 2;
+            new LabelButton(this.game, horizontalCenter,
+                verticalCenter, "button", 'Restart', onRestartClick, 1, 0, 2);
+            new LabelButton(this.game, horizontalCenter,
+                verticalCenter + 64 + 32, "button", 'Menu', onMenuClick, 1, 0, 2);
+
+            function onRestartClick() {
                 this.game.state.start('Preload');
+            }
+
+            function onMenuClick() {
+                this.game.state.start('Menu');
             }
         }
     }

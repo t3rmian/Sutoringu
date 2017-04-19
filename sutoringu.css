@@ -25,4 +25,5 @@ canvas {
     padding: 4px;
     font-size: 24px;
     text-align: center;
+    visibility: hidden;
 }

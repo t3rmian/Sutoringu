@@ -20,6 +20,7 @@
         this.score = newScore;
         this.scoreText.text = 'Score: ' + this.score;
         if (this.loadedDictionary.length <= 0 && this.dictionary.length <= 0) {
+            this.textInput.style.visibility = 'hidden';
             this.game.state.start('GameOver', true, false, this.score);
         }
     }
@@ -33,10 +34,12 @@
 
         preload: function () {
             this.game.load.image('floor', 'assets/floor.png');
+            this.textInput = this.game.state.states['Boot'].textInput;
+            this.textInput.style.visibility = 'visible';
+            this.textInput.focus();
         },
 
         create: function () {
-            this.textInput = this.game.state.states['Boot'].textInput;
             setUpBackground(this.game);
             setUpFloor(this);
             setUpTexts(this);
@@ -92,6 +95,7 @@
 
 
         update: function () {
+            this.textInput.style.visibility = "visible";
             const textToRemove = this.textInput.value;
             const isRemoved = this.removeText(textToRemove);
             if (isRemoved) {

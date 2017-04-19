@@ -9,13 +9,16 @@
     };
 
     Sutoringu.Preload.prototype = {
+        init: function (dictionary = this.dictionary) {
+            this.dictionary = dictionary;
+        },
         create: function () {
             loadJSON.call(this, loadDictionary);
 
             function loadJSON(callback) {
                 let xhr = new XMLHttpRequest();
                 xhr.overrideMimeType("application/json");
-                xhr.open('GET', 'assets/dictionary.json', true);
+                xhr.open('GET', 'assets/' + this.dictionary.toLowerCase() + '.json', true);
                 xhr.onreadystatechange = (function (xhr, context) {
                     return function () {
                         if (xhr.readyState == 4 && xhr.status == "200") {

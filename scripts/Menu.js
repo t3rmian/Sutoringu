@@ -6,12 +6,44 @@
 
     Sutoringu.Menu = function (game) {
         this.game = game;
+        this.title = "Sutoringu";
+        this.labels = ["Hiragana", "Katakana", "Kanji"];
     };
 
     Sutoringu.Menu.prototype = {
+        preload: function () {
+            this.game.load.spritesheet('button', 'assets/button.png', 384, 64);
+        },
+
         create: function () {
-            this.game.state.start('Preload');
+            setUpBackground.call(this);
+            let horizontalCenter = this.game.width / 2;
+            let title = this.game.add.text(horizontalCenter, 16, this.title, {
+                fontSize: '48px',
+                fill: 'pink',
+                boundsAlignH: "center"
+            });
+            title.anchor.setTo(0.5, 0);
+            for (let i = 0; i < this.labels.length; i++) {
+                let verticalCenter = this.game.height / 2;
+                let halfTotalHeight = (this.labels.length - 1) * (64 + 32) / 2;
+                let itemHeight = i * (64 + 32);
+                new LabelButton(this.game, horizontalCenter,
+                    verticalCenter - halfTotalHeight + itemHeight,
+                    "button", this.labels[i], onClick, 1, 0, 2);
+            }
+
+            function setUpBackground() {
+                this.game.stage.backgroundColor = 0xffffff;
+                const sakuraCanvas = this.game.make.bitmapData(this.game.world.width, this.game.world.height);
+                new Sakura(sakuraCanvas, '#ff000000', '#ffa7c5').create().paint();
+                sakuraCanvas.addToWorld();
+            }
+
+            function onClick() {
+                this.game.state.start('Preload', true, true, this.label.text);
+            }
         }
-    }
+    };
 
 })();

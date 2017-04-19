@@ -14,7 +14,6 @@
             this.textInput = document.getElementById("textInput");
             this.textInput.addEventListener("keydown", this.onKeyPressed.bind(this));
             swapWithCanvas(this.textInput);
-            this.textInput.focus();
             this.game.state.start('Menu');
 
             function swapWithCanvas(a) {
@@ -33,7 +32,6 @@
                     this.textInput.value = "";
                 }
                 else if (code === 13) {
-                    console.log(this.textInput.value);
                     const text = this.textInput.value;
                     const removed = this.game.state.states[state].removeText(text);
                     if (removed) {
