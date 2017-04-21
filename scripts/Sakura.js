@@ -15,7 +15,7 @@ let Sakura = function (canvas, treeColor, petalsColor) {
 
     Sakura.prototype = {
         create: function () {
-            this.trunk = new Branch(null, 1, 5);
+            this.trunk = new Branch(null, 1, 1.5);
             this.trunk.angle = 0;
             this.trunk.length = 5;
             this.trunk.tick();
@@ -46,7 +46,7 @@ let Sakura = function (canvas, treeColor, petalsColor) {
             if (depth < 8) {
                 return Math.sqrt(depth / 8) * 45;
             }
-            return 45;
+            return 55;
         }
     };
 
@@ -141,7 +141,7 @@ let Sakura = function (canvas, treeColor, petalsColor) {
     };
 
     Branch.prototype.tick = function () {
-        this.thickness += 8 * Math.random() * Math.pow(2, -0.5 * this.depth);
+        this.thickness += 16 * Math.random() * Math.pow(0.85, 2.5*this.depth);
         this.length += 8 * this.depth * Math.random();
         if (!isMaxHeight(this)) {
             for (let i = branchesCountFormula(this); i > 0; i--) {
@@ -160,7 +160,7 @@ let Sakura = function (canvas, treeColor, petalsColor) {
             if (branch.depth < 4) {
                 return 1;
             }
-            return Math.min(Math.random() * Math.sqrt(branch.depth * branch.depth / 4), 8);
+            return Math.min(Math.random() * Math.sqrt(branch.depth * branch.depth / 2.5), 6);
         }
     };
 

@@ -7,24 +7,39 @@
     Sutoringu.Boot = function (game) {
         this.game = game;
         this.textInput = null;
+        this.sakuraFallOptions = {
+            // blowAnimations: [
+            //     'blow-soft-left',
+            // ],
+            // swayAnimations: [
+            //     'sway-0',
+            // ],
+            className: 'sakura',
+            fallSpeed: 1,
+            maxSize: 14,
+            minSize: 9,
+            newOn: 300
+        }
     };
 
     Sutoringu.Boot.prototype = {
         create: function () {
+            this.game.stage.backgroundColor = 0xffffff;
             this.textInput = document.getElementById("textInput");
             this.textInput.addEventListener("keydown", this.onKeyPressed.bind(this));
             swapWithCanvas(this.textInput);
             this.game.state.start('Menu');
             let modal = document.getElementById('modal');
             let span = document.getElementsByClassName("close")[0];
-            span.onclick = function() {
+            span.onclick = function () {
                 modal.style.display = "none";
             };
-            window.onclick = function(event) {
+            window.onclick = function (event) {
                 if (event.target === modal) {
                     modal.style.display = "none";
                 }
             };
+            document.getElementById('body').sakura('start', this.sakuraFallOptions);
 
             function swapWithCanvas(a) {
                 const aParent = a.parentNode;

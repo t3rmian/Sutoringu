@@ -53,7 +53,10 @@
 
             function onAboutClick() {
                 document.getElementById('modal').style.display = "block";
-                document.getElementById('modal-content').innerText = "Created by Damian Terlecki\n\nasdasd";
+                document.getElementById('modal-content').innerText = "Created by Damian Terlecki\n\n" +
+                    "Attributions - Build on:\n" +
+                    "Phaser CE v2.7.6 - Copyright (c) 2017 Richard Davey, Photon Storm Ltd.\n" +
+                    "jQuery-Sakura - Copyright (c) 2014 Timo Schäfer";
 
                 setTimeout(function (context) {
                     context.aboutButton.frame = 3;

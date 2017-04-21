@@ -58,6 +58,7 @@
 
         preload: function () {
             this.game.load.spritesheet('button', 'assets/button.png', 384, 64);
+            document.getElementById('body').sakura('start', this.game.state.states['Boot'].sakuraFallOptions);
         },
 
         create: function () {
@@ -69,6 +70,9 @@
             jsonp.send(url + "?" + params + "&callback=" + callbackName, {
                 callbackName: callbackName,
                 onSuccess: function (json) {
+                    if (this.game.state.current !== 'GameOver') {
+                        return;
+                    }
                     let placedLabel = "You placed ";
                     let scorePosition = this.game.add.text(horizontalCenter, 16 + 32 * 2 + 16, placedLabel + json.scoreRow + " out of " + json.rows, {
                         fontSize: '32px',
@@ -87,6 +91,9 @@
                     scorePercentage.addColor('pink', thatLabel.length);
                 },
                 onTimeout: function () {
+                    if (this.game.state.current !== 'GameOver') {
+                        return;
+                    }
                     this.game.add.text(horizontalCenter, 16 + 32 * 2 + 16, "Connection to the server has been lost", {
                         fontSize: '32px',
                         fill: '#000'
@@ -130,7 +137,7 @@
             }
 
             function onMissedClick() {
-                let output = "";
+                let output = "Missed characters:\n\n";
                 let prefix = "";
                 for (let i = 0; i < this.missedCharacters.length; i++) {
                     output += prefix + this.missedCharacters[i].string + " - " + this.missedCharacters[i].text;

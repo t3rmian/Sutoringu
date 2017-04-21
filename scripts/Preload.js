@@ -13,6 +13,8 @@
             this.dictionary = dictionary;
         },
         create: function () {
+            this.game.stage.backgroundColor = 0xffffff;
+            document.getElementById('body').sakura('stop');
             loadJSON.call(this, loadDictionary);
 
             function loadJSON(callback) {
