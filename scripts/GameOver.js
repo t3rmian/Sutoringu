@@ -31,7 +31,11 @@
 
             window[callback_name] = function (data) {
                 window.clearTimeout(timeoutTrigger);
-                on_success.call(options.context, data);
+                if (data.result === 'success') {
+                    on_success.call(options.context, data);
+                } else {
+                    on_timeout.call(options.context);
+                }
             };
 
             let script = document.createElement('script');
@@ -56,6 +60,7 @@
 
         create: function () {
             this.gameMode = this.game.state.states['Preload'].dictionary;
+            this.log = SparkMD5.hash(Math.floor(new Date() / 1000).toString() + this.score.toString());
             let url = "https://script.google.com/macros/s/AKfycbyGlzl8cHe5l__ub3LsoIORsHAjIhN07jk9b8Fu11D1XLleBcI/exec";
             let params = "log=" + this.log + "&score=" + this.score + "&gameMode=" + this.gameMode.toLowerCase();
             let callbackName = 'onScoresUpdate';
