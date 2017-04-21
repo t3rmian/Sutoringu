@@ -76,8 +76,9 @@
                     return;
                 }
                 this.game.physics.startSystem(Phaser.Physics.ARCADE);
-                let entry = this.loadedDictionary[0];
-                this.loadedDictionary.splice(0, 1);
+                let dictionaryIndex = Math.round(Math.random() * (this.loadedDictionary.length - 1));
+                let entry = this.loadedDictionary[dictionaryIndex];
+                this.loadedDictionary.splice(dictionaryIndex, 1);
                 const textStyle = {font: "32px Arial", fill: "#ff0044", fontStyle: "bold"};
                 const text = this.game.add.text(0, 0, entry.string, textStyle);
                 text.anchor.setTo(0, 0);
