@@ -14,6 +14,7 @@
         this.score = 0;
         this.scoreText = null;
         this.textInput = null;
+        this.missedCharacters = [];
     };
 
     function updateScore(newScore) {
@@ -21,7 +22,7 @@
         this.scoreText.text = 'Score: ' + this.score;
         if (this.loadedDictionary.length <= 0 && this.dictionary.length <= 0) {
             this.textInput.style.visibility = 'hidden';
-            this.game.state.start('GameOver', true, false, this.score);
+            this.game.state.start('GameOver', true, false, this.score, this.missedCharacters);
         }
     }
 
@@ -109,6 +110,7 @@
                     textSprite.kill();
                     for (let i = 0; i < this.dictionary.length; i++) {
                         if (this.dictionary[i].textSprite === textSprite) {
+                            this.missedCharacters.push(this.dictionary[i]);
                             this.dictionary.splice(i, 1);
                             break;
                         }

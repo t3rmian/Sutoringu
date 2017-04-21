@@ -8,6 +8,7 @@
         this.game = game;
         this.title = "Sutoringu";
         this.labels = ["Hiragana", "Katakana", "Kanji"];
+        this.about = "About";
     };
 
     Sutoringu.Menu.prototype = {
@@ -24,14 +25,20 @@
                 boundsAlignH: "center"
             });
             title.anchor.setTo(0.5, 0);
+            let verticalPosition;
             for (let i = 0; i < this.labels.length; i++) {
                 let verticalCenter = this.game.height / 2;
                 let halfTotalHeight = (this.labels.length - 1) * (64 + 32) / 2;
                 let itemHeight = i * (64 + 32);
+                verticalPosition = verticalCenter - halfTotalHeight + itemHeight;
                 new LabelButton(this.game, horizontalCenter,
-                    verticalCenter - halfTotalHeight + itemHeight,
-                    "button", this.labels[i], onClick, 1, 0, 2);
+                    verticalPosition,
+                    "button", this.labels[i], onGameplayClick, 1, 0, 2);
             }
+
+            this.aboutButton = new LabelButton(this.game, horizontalCenter,
+                verticalPosition + 64 + 32 + 32,
+                "button", this.about, onAboutClick, 1, 0, 2, this);
 
             function setUpBackground() {
                 this.game.stage.backgroundColor = 0xffffff;
@@ -40,8 +47,18 @@
                 sakuraCanvas.addToWorld();
             }
 
-            function onClick() {
+            function onGameplayClick() {
                 this.game.state.start('Preload', true, true, this.label.text);
+            }
+
+            function onAboutClick() {
+                document.getElementById('modal').style.display = "block";
+                document.getElementById('modal-content').innerText = "Created by Damian Terlecki\n\nasdasd";
+
+                setTimeout(function (context) {
+                    context.aboutButton.frame = 3;
+                    context.aboutButton.resetFrame();
+                }, 10, this);
             }
         }
     };

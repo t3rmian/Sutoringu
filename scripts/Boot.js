@@ -15,6 +15,16 @@
             this.textInput.addEventListener("keydown", this.onKeyPressed.bind(this));
             swapWithCanvas(this.textInput);
             this.game.state.start('Menu');
+            let modal = document.getElementById('modal');
+            let span = document.getElementsByClassName("close")[0];
+            span.onclick = function() {
+                modal.style.display = "none";
+            };
+            window.onclick = function(event) {
+                if (event.target === modal) {
+                    modal.style.display = "none";
+                }
+            };
 
             function swapWithCanvas(a) {
                 const aParent = a.parentNode;

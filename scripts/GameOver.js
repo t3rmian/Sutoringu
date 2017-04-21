@@ -9,6 +9,7 @@
         this.gameMode = undefined;
         this.log = undefined;
         this.score = 0;
+        this.missedCharacters = null;
     };
 
 
@@ -50,8 +51,9 @@
     })();
 
     Sutoringu.GameOver.prototype = {
-        init: function (score) {
+        init: function (score, missedCharacters) {
             this.score = score;
+            this.missedCharacters = missedCharacters;
         },
 
         preload: function () {
@@ -114,6 +116,10 @@
                 verticalCenter, "button", 'Restart', onRestartClick, 1, 0, 2);
             new LabelButton(this.game, horizontalCenter,
                 verticalCenter + 64 + 32, "button", 'Menu', onMenuClick, 1, 0, 2);
+            if (this.missedCharacters.length !== 0) {
+                this.missingButton = new LabelButton(this.game, horizontalCenter,
+                    verticalCenter + (64 + 32) * 2 + 32, "button", 'Missed characters', onMissedClick, 1, 0, 2, this);
+            }
 
             function onRestartClick() {
                 this.game.state.start('Preload');
@@ -121,6 +127,22 @@
 
             function onMenuClick() {
                 this.game.state.start('Menu');
+            }
+
+            function onMissedClick() {
+                let output = "";
+                let prefix = "";
+                for (let i = 0; i < this.missedCharacters.length; i++) {
+                    output += prefix + this.missedCharacters[i].string + " - " + this.missedCharacters[i].text;
+                    prefix = "\n";
+                }
+                document.getElementById('modal').style.display = "block";
+                document.getElementById('modal-content').innerText = output;
+
+                setTimeout(function (context) {
+                    context.missingButton.frame = 3;
+                    context.missingButton.resetFrame();
+                }, 10, this);
             }
         }
     }
