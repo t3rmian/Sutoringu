@@ -39,6 +39,12 @@
                     modal.style.display = "none";
                 }
             };
+            document.addEventListener("keydown", function keyDownTextField(e) {
+                var keyCode = e.keyCode;
+                if (keyCode == 27) {
+                    modal.style.display = "none";
+                }
+            }, false);
             document.getElementById('body').sakura('start', this.sakuraFallOptions);
 
             function swapWithCanvas(a) {

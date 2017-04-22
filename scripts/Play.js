@@ -90,11 +90,11 @@
                 const textSprite = this.texts.create(0, 0, null);
                 textSprite.anchor.setTo(0.5, 0);
                 textSprite.addChildAt(text, 0);
-                textSprite.x = Math.random() * (this.game.width - textSprite.width) + textSprite.width;
+                textSprite.x = Math.random() * (this.game.width - textSprite.width) + textSprite.width / 2;
                 textSprite.body.bounce.y = this.bounce;
                 textSprite.body.gravity.y = this.gravity;
                 textSprite.body.collideWorldBounds = true;
-                textSprite.body.setSize(textSprite.body.width, textSprite.body.height, 0, -textSprite.body.height/1.5);
+                textSprite.body.setSize(textSprite.body.width, textSprite.body.height, 0, -textSprite.body.height / 1.5);
                 entry.textSprite = textSprite;
                 entry.gameText = text;
                 this.dictionary.push(entry);
@@ -104,7 +104,6 @@
 
 
         update: function () {
-            this.textInput.style.visibility = "visible";
             const textToRemove = this.textInput.value;
             const isRemoved = this.removeText(textToRemove);
             if (isRemoved) {

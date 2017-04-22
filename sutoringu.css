@@ -9,6 +9,10 @@ html, body, #game {
 body {
     display: table;
     overflow-x: hidden;
+    background-color: #fff;
+    background-image: url("assets/sakura1.png"), url("assets/sakura2.png");
+    background-position: right top, left bottom;
+    background-repeat: no-repeat;
 }
 
 #game {
@@ -70,4 +74,18 @@ canvas {
     color: black;
     text-decoration: none;
     cursor: pointer;
+}
+
+.author-loader {
+    border: 8px solid #f4f4f4;
+    border-top: 8px solid pink;
+    border-radius: 50%;
+    width: 23.5px;
+    height: 23.5px;
+    animation: spin 2s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
 }

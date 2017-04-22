@@ -9,46 +9,12 @@
         this.gameMode = undefined;
         this.log = undefined;
         this.score = 0;
+        this.serverScore = null;
         this.missedCharacters = null;
+        this.scoreChart = null;
+        this.loadingLabels = ["Loading ranking", "Loading ranking.", "Loading ranking..", "Loading ranking..."]
+        this.loadingIndex = 1;
     };
-
-
-    let jsonp = (function () {
-        let call = {};
-
-        call.send = function (src, options) {
-            let callback_name = options.callbackName || 'callback',
-                on_success = options.onSuccess || function () {
-                    },
-                on_timeout = options.onTimeout || function () {
-                    },
-                timeout = options.timeout || 30;
-
-            let timeoutTrigger = window.setTimeout(function () {
-                window[callback_name] = function () {
-                };
-                on_timeout.call(options.context);
-            }, timeout * 1000);
-
-            window[callback_name] = function (data) {
-                window.clearTimeout(timeoutTrigger);
-                if (data.result === 'success') {
-                    on_success.call(options.context, data);
-                } else {
-                    on_timeout.call(options.context);
-                }
-            };
-
-            let script = document.createElement('script');
-            script.type = 'text/javascript';
-            script.async = true;
-            script.src = src;
-
-            document.getElementsByTagName('head')[0].appendChild(script);
-        };
-
-        return call;
-    })();
 
     Sutoringu.GameOver.prototype = {
         init: function (score, missedCharacters) {
@@ -58,10 +24,18 @@
 
         preload: function () {
             this.game.load.spritesheet('button', 'assets/button.png', 384, 64);
+            this.game.load.spritesheet('scoreChart', 'assets/scoreChart.png', 64, 64, 6);
             document.getElementById('body').sakura('start', this.game.state.states['Boot'].sakuraFallOptions);
         },
 
         create: function () {
+            let horizontalCenter = this.game.width / 2;
+            this.serverScore = this.game.add.text(horizontalCenter, 16 + 32 * 2 + 16, this.loadingLabels[this.loadingIndex], {
+                fontSize: '32px',
+                fill: '#000'
+            });
+            this.serverScore.anchor.setTo(0.5, 0);
+            this.game.time.events.add(Phaser.Timer.SECOND * 0.5, loadingAnimation, this);
             this.gameMode = this.game.state.states['Preload'].dictionary;
             this.log = SparkMD5.hash(Math.floor(new Date() / 1000).toString() + this.score.toString());
             let url = "https://script.google.com/macros/s/AKfycbyGlzl8cHe5l__ub3LsoIORsHAjIhN07jk9b8Fu11D1XLleBcI/exec";
@@ -70,16 +44,15 @@
             jsonp.send(url + "?" + params + "&callback=" + callbackName, {
                 callbackName: callbackName,
                 onSuccess: function (json) {
+                    this.loadingIndex = -1;
                     if (this.game.state.current !== 'GameOver') {
                         return;
                     }
+                    let horizontalCenter = this.game.width / 2;
                     let placedLabel = "You placed ";
-                    let scorePosition = this.game.add.text(horizontalCenter, 16 + 32 * 2 + 16, placedLabel + json.scoreRow + " out of " + json.rows, {
-                        fontSize: '32px',
-                        fill: '#000'
-                    });
-                    scorePosition.anchor.setTo(0.5, 0);
-                    scorePosition.addColor('pink', placedLabel.length);
+                    this.serverScore.text = placedLabel + json.scoreRow + " out of " + json.rows;
+                    this.serverScore.anchor.setTo(0.5, 0);
+                    this.serverScore.addColor('#ff0044', placedLabel.length);
                     let value = ((json.rows - json.scoreRow + 1) / json.rows * 100).toFixed(2);
                     let thatLabel = "That makes you ";
                     let prefixLabel = thatLabel + "better than ";
@@ -87,10 +60,12 @@
                         fontSize: '32px',
                         fill: '#000'
                     });
+                    this.scoreChart.frame = Math.round(value / 100 * 5);
                     scorePercentage.anchor.setTo(0.5, 0);
-                    scorePercentage.addColor('pink', thatLabel.length);
+                    scorePercentage.addColor('#ff0044', thatLabel.length);
                 },
                 onTimeout: function () {
+                    this.loadingIndex = -1;
                     if (this.game.state.current !== 'GameOver') {
                         return;
                     }
@@ -103,22 +78,24 @@
                 context: this
             });
 
-            let horizontalCenter = this.game.width / 2;
             let gameOver = this.game.add.text(horizontalCenter, 16, 'GAME OVER!', {
                 fontSize: '32px',
                 fill: '#000'
             });
             gameOver.anchor.setTo(0.5, 0);
-
             let scoreLabel = this.gameMode + ' score: ';
+
             let score = this.game.add.text(horizontalCenter, 16 + 32 + 16, scoreLabel + this.score, {
                 fontSize: '32px',
                 fill: '#000'
             });
             score.anchor.setTo(0.5, 0);
-            score.addColor('pink', scoreLabel.length);
+            score.addColor('#ff0044', scoreLabel.length);
 
             let verticalCenter = this.game.height / 2;
+            this.scoreChart = this.game.add.sprite(horizontalCenter, verticalCenter - 64 - 32 + 8, 'scoreChart');
+            this.scoreChart.smoothed = true;
+            this.scoreChart.anchor.setTo(0.5, 0.5);
             new LabelButton(this.game, horizontalCenter,
                 verticalCenter, "button", 'Restart', onRestartClick, 1, 0, 2);
             new LabelButton(this.game, horizontalCenter,
@@ -126,6 +103,15 @@
             if (this.missedCharacters.length !== 0) {
                 this.missingButton = new LabelButton(this.game, horizontalCenter,
                     verticalCenter + (64 + 32) * 2 + 32, "button", 'Missed characters', onMissedClick, 1, 0, 2, this);
+            }
+
+            function loadingAnimation() {
+                if (this.loadingIndex >= 0) {
+                    this.loadingIndex += 1;
+                    this.loadingIndex %= this.loadingLabels.length;
+                    this.serverScore.text = this.loadingLabels[this.loadingIndex];
+                    this.game.time.events.add(Phaser.Timer.SECOND * 0.5, loadingAnimation, this);
+                }
             }
 
             function onRestartClick() {
@@ -137,21 +123,22 @@
             }
 
             function onMissedClick() {
-                let output = "Missed characters:\n\n";
-                let prefix = "";
+                let output = "<div style='font-size: 1.3em; text-align: center;'><b>Missed characters/words (" + this.gameMode + "):</b><ol style='text-align: left'>";
+                let prefix = "<li>";
                 for (let i = 0; i < this.missedCharacters.length; i++) {
-                    output += prefix + this.missedCharacters[i].string + " - " + this.missedCharacters[i].text;
-                    prefix = "\n";
+                    output += prefix + "<b style='font-size: 1.3em;color: #ff0044;'>" + this.missedCharacters[i].string + "</b>" + " - " + this.missedCharacters[i].text;
+                    prefix = "</li><li>";
                 }
+                output += "</li></ol></div>";
                 document.getElementById('modal').style.display = "block";
-                document.getElementById('modal-content').innerText = output;
+                document.getElementById('modal-content').innerHTML = output;
 
                 setTimeout(function (context) {
                     context.missingButton.frame = 3;
                     context.missingButton.resetFrame();
                 }, 10, this);
             }
-        }
+        },
     }
 
 
