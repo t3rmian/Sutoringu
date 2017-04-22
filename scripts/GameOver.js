@@ -17,9 +17,10 @@
     };
 
     Sutoringu.GameOver.prototype = {
-        init: function (score, missedCharacters) {
+        init: function (score, missedCharacters, gameMode) {
             this.score = score;
             this.missedCharacters = missedCharacters;
+            this.gameMode = gameMode;
         },
 
         preload: function () {
@@ -36,7 +37,6 @@
             });
             this.serverScore.anchor.setTo(0.5, 0);
             this.game.time.events.add(Phaser.Timer.SECOND * 0.5, loadingAnimation, this);
-            this.gameMode = this.game.state.states['Preload'].dictionary;
             this.log = SparkMD5.hash(Math.floor(new Date() / 1000).toString() + this.score.toString());
             let url = "https://script.google.com/macros/s/AKfycbyGlzl8cHe5l__ub3LsoIORsHAjIhN07jk9b8Fu11D1XLleBcI/exec";
             let params = "log=" + this.log + "&score=" + this.score + "&gameMode=" + this.gameMode.toLowerCase();
@@ -69,6 +69,7 @@
                     if (this.game.state.current !== 'GameOver') {
                         return;
                     }
+                    this.serverScore.text = "";
                     this.game.add.text(horizontalCenter, 16 + 32 * 2 + 16, "Connection to the server has been lost", {
                         fontSize: '32px',
                         fill: '#000'
@@ -123,20 +124,50 @@
             }
 
             function onMissedClick() {
-                let output = "<div style='font-size: 1.3em; text-align: center;'><b>Missed characters/words (" + this.gameMode + "):</b><ol style='text-align: left'>";
+                let isKanji = this.context.gameMode.toLowerCase().includes('kanji');
+                let output = "<div style='font-size: 1.3em; text-align: center;'><b>Missed " + (isKanji ? "words" : "characters")
+                    + " (" + this.context.gameMode + "):</b><ol style='text-align: left'>";
                 let prefix = "<li>";
-                for (let i = 0; i < this.missedCharacters.length; i++) {
-                    output += prefix + "<b style='font-size: 1.3em;color: #ff0044;'>" + this.missedCharacters[i].string + "</b>" + " - " + this.missedCharacters[i].romaji;
+
+                for (let i = 0; i < this.context.missedCharacters.length; i++) {
+                    let entry = this.context.missedCharacters[i];
+                    output += prefix + "<b style='font-size: 1.3em;color: #ff0044;'>" + entry.string + "</b>" + getMissedItemDescription(entry, isKanji);
                     prefix = "</li><li>";
                 }
                 output += "</li></ol></div>";
                 document.getElementById('modal').style.display = "block";
                 document.getElementById('modal-content').innerHTML = output;
-
                 setTimeout(function (context) {
                     context.missingButton.frame = 3;
                     context.missingButton.resetFrame();
-                }, 10, this);
+                }, 10, this.context);
+
+                function getMissedItemDescription(entry, isKanji) {
+                    if (isKanji) {
+                        let output = " - ";
+                        let prefix = "";
+                        for (let i = 0; i < entry.meaning.length; i++) {
+                            output += prefix + entry.meaning[i];
+                            prefix = ", ";
+                        }
+                        output += "<br/><b>On'yomi</b><ul>";
+                        prefix = "<li>";
+                        for (let i = 0; i < entry.onyomi.length; i++) {
+                            output += prefix + entry.onyomi[i];
+                            prefix = "</li><li>";
+                        }
+                        output += "</li></ul><b>Kun'yomi</b><ul>";
+                        prefix = "<li>";
+                        for (let i = 0; i < entry.kunyomi.length; i++) {
+                            output += prefix + entry.kunyomi[i];
+                            prefix = "</li><li>";
+                        }
+                        output += "</li></ul><br/>";
+                        return output;
+                    } else {
+                        return " - " + entry.romaji;
+                    }
+                }
             }
         },
     }

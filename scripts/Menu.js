@@ -56,7 +56,7 @@
             }
 
             function onGameplayClick() {
-                this.game.state.start('Preload', true, true, this.label.text);
+                this.game.state.start('AdvancedMenu', true, true, this.label.text);
             }
 
             function onAboutClick() {
@@ -73,13 +73,13 @@
                 setTimeout(function (context) {
                     context.aboutButton.frame = 3;
                     context.aboutButton.resetFrame();
-                }, 10, this);
+                }, 10, this.context);
                 let url = 'https://script.google.com/macros/s/AKfycbyu4wyBly1IlJbHQpbs9TFBUOO7MyjWT-flleHMjcD1h7J3crR3/exec';
                 let callbackName = 'onAboutReceiveInfo';
-                if (this.authorData !== null) {
+                if (this.context.authorData !== null) {
                     let elementById = document.getElementById('author-loader');
                     elementById.classList.remove('author-loader');
-                    elementById.innerHTML += this.authorData;
+                    elementById.innerHTML += this.context.authorData;
                 } else {
                     jsonp.send(url + "?callback=" + callbackName, {
                         callbackName: callbackName,
@@ -87,7 +87,7 @@
                             let elementById = document.getElementById('author-loader');
                             elementById.classList.remove('author-loader');
                             elementById.innerHTML += json.data;
-                            this.authorData = json.data;
+                            this.context.authorData = json.data;
                         },
                         onTimeout: function () {
                             let elementById = document.getElementById('author-loader');

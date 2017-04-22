@@ -9,8 +9,9 @@
     };
 
     Sutoringu.Preload.prototype = {
-        init: function (dictionary = this.dictionary) {
+        init: function (dictionary = this.dictionary, gameMode = this.gameMode) {
             this.dictionary = dictionary;
+            this.gameMode = gameMode;
         },
         create: function () {
             this.game.stage.backgroundColor = 0xffffff;
@@ -20,7 +21,7 @@
             function loadJSON(callback) {
                 let xhr = new XMLHttpRequest();
                 xhr.overrideMimeType("application/json");
-                xhr.open('GET', 'assets/dictionary/' + this.dictionary.toLowerCase() + '.json', true);
+                xhr.open('GET', 'assets/dictionary/' + this.dictionary + '.json', true);
                 xhr.onreadystatechange = (function (xhr, context) {
                     return function () {
                         if (xhr.readyState == 4 && xhr.status == "200") {
@@ -32,7 +33,7 @@
             }
 
             function loadDictionary(response) {
-                this.game.state.start('Play', true, true, JSON.parse(response));
+                this.game.state.start('Play', true, true, JSON.parse(response), this.gameMode);
             }
         }
     }

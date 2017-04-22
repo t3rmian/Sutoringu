@@ -48,6 +48,7 @@ Sutoringu.prototype = {
     start: function () {
         this.game.state.add('Boot', Sutoringu.Boot);
         this.game.state.add('Menu', Sutoringu.Menu);
+        this.game.state.add('AdvancedMenu', Sutoringu.AdvancedMenu);
         this.game.state.add('Preload', Sutoringu.Preload);
         this.game.state.add('Play', Sutoringu.Play);
         this.game.state.add('GameOver', Sutoringu.GameOver);

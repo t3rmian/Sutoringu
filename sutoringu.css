@@ -21,6 +21,11 @@ body {
     text-align: center;
 }
 
+#forfeit {
+    margin-top: 8px;
+    visibility: hidden;
+}
+
 canvas {
     display: block;
     margin: auto;

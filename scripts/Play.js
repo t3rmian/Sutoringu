@@ -18,6 +18,7 @@
         this.missedCharacters = [];
         this.deletableSprites = [];
         this.deletableTracks = [];
+        this.game = undefined;
     };
 
     function updateScore(newScore) {
@@ -25,22 +26,26 @@
         this.scoreText.text = 'Score: ' + this.score;
         if (this.loadedDictionary.length <= 0 && this.dictionary.length <= 0) {
             this.textInput.style.visibility = 'hidden';
+            this.forfeitButton.style.visibility = 'hidden';
             setTimeout(function () {
-                this.game.state.start('GameOver', true, false, this.score, this.missedCharacters);
+                this.forfeit();
             }.bind(this), 1000);
         }
     }
 
     Sutoringu.Play.prototype = {
 
-        init: function (dictionary) {
+        init: function (dictionary, gameMode) {
             this.loadedDictionary = dictionary;
+            this.gameMode = gameMode;
             this.score = 0;
         },
 
         preload: function () {
             this.game.load.image('floor', 'assets/floor.png');
             this.textInput = this.game.state.states['Boot'].textInput;
+            this.forfeitButton = this.game.state.states['Boot'].forfeitButton;
+            this.forfeitButton.style.visibility = 'visible';
             this.textInput.style.visibility = 'visible';
             this.textInput.focus();
         },
@@ -175,14 +180,13 @@
 
         removeText: function (text) {
             for (let i = 0; i < this.dictionary.length; i++) {
-                if (this.dictionary[i].romaji.toLowerCase() === text.toLowerCase()) {
-                    let textSprite = this.dictionary[i].textSprite;
-                    let x = textSprite.x;
-                    let y = textSprite.y;
-                    textSprite.body.velocity.x = (x < (this.game.world.width / 2)) ? -500 : 500;
+                let entry = this.dictionary[i];
+                if (inputMatches(text, entry, this.gameMode)) {
+                    let textSprite = entry.textSprite;
+                    textSprite.body.velocity.x = (textSprite.x < (this.game.world.width / 2)) ? -500 : 500;
                     textSprite.body.velocity.y = -500;
                     textSprite.body.collideWorldBounds = false;
-                    this.dictionary[i].gameText.addColor('#666666', 0);
+                    entry.gameText.addColor('#666666', 0);
                     textSprite.initializeTrack = true;
                     this.deletableSprites.push(textSprite);
                     textSprite.checkWorldBounds = true;
@@ -196,6 +200,31 @@
                 }
             }
             return false;
+
+            function inputMatches(input, entry, gameMode) {
+                if (gameMode.toLowerCase().includes('kanji')) {
+                    input = input.toLowerCase();
+                    for (let i = 0; i < entry.onyomi.length; i++) {
+                        if (input === entry.onyomi[i].toLowerCase()) {
+                            return true;
+                        }
+                    }
+                    for (let i = 0; i < entry.kunyomi.length; i++) {
+                        if (input === entry.kunyomi[i].toLowerCase()) {
+                            return true;
+                        }
+                    }
+                    return false;
+                } else {
+                    return entry.romaji.toLowerCase() === input.toLowerCase();
+                }
+            }
+        },
+
+        forfeit: function() {
+            this.textInput.style.visibility = 'hidden';
+            this.forfeitButton.style.visibility = 'hidden';
+            this.game.state.start('GameOver', true, false, this.score, this.missedCharacters, this.gameMode);
         }
 
     }

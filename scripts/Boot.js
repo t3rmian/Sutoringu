@@ -7,6 +7,7 @@
     Sutoringu.Boot = function (game) {
         this.game = game;
         this.textInput = null;
+        this.forfeitButton = null;
         this.sakuraFallOptions = {
             // blowAnimations: [
             //     'blow-soft-left',
@@ -25,6 +26,7 @@
     Sutoringu.Boot.prototype = {
         create: function () {
             this.game.stage.backgroundColor = 0xffffff;
+            this.forfeitButton = document.getElementById('forfeit');
             this.textInput = document.getElementById("textInput");
             this.textInput.addEventListener("keydown", this.onKeyPressed.bind(this));
             swapWithCanvas(this.textInput);
@@ -34,6 +36,12 @@
             span.onclick = function () {
                 modal.style.display = "none";
             };
+            this.forfeitButton.addEventListener("click", function forfeit() {
+                const state = this.game.state.current;
+                if (state === 'Play') {
+                    this.game.state.states[this.game.state.current].forfeit();
+                }
+            }.bind(this));
             window.onclick = function (event) {
                 if (event.target === modal) {
                     modal.style.display = "none";
