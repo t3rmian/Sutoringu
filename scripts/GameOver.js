@@ -126,7 +126,7 @@
                 let output = "<div style='font-size: 1.3em; text-align: center;'><b>Missed characters/words (" + this.gameMode + "):</b><ol style='text-align: left'>";
                 let prefix = "<li>";
                 for (let i = 0; i < this.missedCharacters.length; i++) {
-                    output += prefix + "<b style='font-size: 1.3em;color: #ff0044;'>" + this.missedCharacters[i].string + "</b>" + " - " + this.missedCharacters[i].text;
+                    output += prefix + "<b style='font-size: 1.3em;color: #ff0044;'>" + this.missedCharacters[i].string + "</b>" + " - " + this.missedCharacters[i].romaji;
                     prefix = "</li><li>";
                 }
                 output += "</li></ol></div>";

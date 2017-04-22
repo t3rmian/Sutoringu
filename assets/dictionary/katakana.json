@@ -1,14 +1,194 @@
 [
   {
-    "string": "abc",
-    "text": "abc"
+    "string": "ア",
+    "romaji": "a"
   },
   {
-    "string": "defg",
-    "text": "defg"
+    "string": "イ",
+    "romaji": "i"
   },
   {
-    "string": "wtf",
-    "text": "ftw"
+    "string": "ウ",
+    "romaji": "u"
+  },
+  {
+    "string": "エ",
+    "romaji": "e"
+  },
+  {
+    "string": "オ",
+    "romaji": "o"
+  },
+  {
+    "string": "カ",
+    "romaji": "ka"
+  },
+  {
+    "string": "キ",
+    "romaji": "ki"
+  },
+  {
+    "string": "ク",
+    "romaji": "ku"
+  },
+  {
+    "string": "ケ",
+    "romaji": "ke"
+  },
+  {
+    "string": "コ",
+    "romaji": "ko"
+  },
+  {
+    "string": "サ",
+    "romaji": "sa"
+  },
+  {
+    "string": "シ",
+    "romaji": "shi"
+  },
+  {
+    "string": "ス",
+    "romaji": "su"
+  },
+  {
+    "string": "セ",
+    "romaji": "se"
+  },
+  {
+    "string": "ソ",
+    "romaji": "so"
+  },
+  {
+    "string": "タ",
+    "romaji": "ta"
+  },
+  {
+    "string": "チ",
+    "romaji": "chi"
+  },
+  {
+    "string": "ツ",
+    "romaji": "tsu"
+  },
+  {
+    "string": "テ",
+    "romaji": "te"
+  },
+  {
+    "string": "ト",
+    "romaji": "to"
+  },
+  {
+    "string": "ナ",
+    "romaji": "na"
+  },
+  {
+    "string": "ニ",
+    "romaji": "ni"
+  },
+  {
+    "string": "ヌ",
+    "romaji": "nu"
+  },
+  {
+    "string": "ネ",
+    "romaji": "ne"
+  },
+  {
+    "string": "ノ",
+    "romaji": "no"
+  },
+  {
+    "string": "ハ",
+    "romaji": "ha"
+  },
+  {
+    "string": "ヒ",
+    "romaji": "hi"
+  },
+  {
+    "string": "フ",
+    "romaji": "fu"
+  },
+  {
+    "string": "ヘ",
+    "romaji": "he"
+  },
+  {
+    "string": "ホ",
+    "romaji": "ho"
+  },
+  {
+    "string": "マ",
+    "romaji": "ma"
+  },
+  {
+    "string": "ミ",
+    "romaji": "mi"
+  },
+  {
+    "string": "ム",
+    "romaji": "mu"
+  },
+  {
+    "string": "メ",
+    "romaji": "me"
+  },
+  {
+    "string": "モ",
+    "romaji": "mo"
+  },
+  {
+    "string": "ヤ",
+    "romaji": "ya"
+  },
+  {
+    "string": "ユ",
+    "romaji": "yu"
+  },
+  {
+    "string": "ヨ",
+    "romaji": "yo"
+  },
+  {
+    "string": "ラ",
+    "romaji": "ra"
+  },
+  {
+    "string": "リ",
+    "romaji": "ri"
+  },
+  {
+    "string": "ル",
+    "romaji": "ru"
+  },
+  {
+    "string": "レ",
+    "romaji": "re"
+  },
+  {
+    "string": "ロ",
+    "romaji": "ro"
+  },
+  {
+    "string": "ワ",
+    "romaji": "wa"
+  },
+  {
+    "string": "ヰ",
+    "romaji": "wi"
+  },
+  {
+    "string": "ヱ",
+    "romaji": "we"
+  },
+  {
+    "string": "ヲ",
+    "romaji": "wo"
+  },
+  {
+    "string": "ン",
+    "romaji": "n"
   }
 ]

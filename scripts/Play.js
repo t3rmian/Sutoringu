@@ -175,7 +175,7 @@
 
         removeText: function (text) {
             for (let i = 0; i < this.dictionary.length; i++) {
-                if (this.dictionary[i].text.toLowerCase() === text.toLowerCase()) {
+                if (this.dictionary[i].romaji.toLowerCase() === text.toLowerCase()) {
                     let textSprite = this.dictionary[i].textSprite;
                     let x = textSprite.x;
                     let y = textSprite.y;

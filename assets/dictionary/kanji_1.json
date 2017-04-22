@@ -1,0 +1,40 @@
+[
+  {
+    "string": "一",
+    "onyomi": [
+      "ichi",
+      "itsu"
+    ],
+    "kunyomi": [
+      "hitotsu"
+    ],
+    "meaning": [
+      "one"
+    ]
+  },
+  {
+    "string": "二",
+    "onyomi": [
+      "ni",
+      "ji"
+    ],
+    "kunyomi": [
+      "futatsu"
+    ],
+    "meaning": [
+      "two"
+    ]
+  },
+  {
+    "string": "三",
+    "onyomi": [
+      "san"
+    ],
+    "kunyomi": [
+      "mitsu"
+    ],
+    "meaning": [
+      "three"
+    ]
+  }
+]
