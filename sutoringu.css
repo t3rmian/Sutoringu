@@ -10,7 +10,7 @@ body {
     display: table;
     overflow-x: hidden;
     background-color: #fff;
-    background-image: url("assets/sakura1.png"), url("assets/sakura2.png");
+    background-image: url("assets/images/sakura1.png"), url("assets/images/sakura2.png");
     background-position: right top, left bottom;
     background-repeat: no-repeat;
 }
@@ -85,12 +85,36 @@ canvas {
     border: 8px solid #f4f4f4;
     border-top: 8px solid pink;
     border-radius: 50%;
-    width: 23.5px;
-    height: 23.5px;
+    width: 26px;
+    height: 26px;
     animation: spin 2s linear infinite;
 }
 
 @keyframes spin {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+@font-face {
+    font-family: 'Molle';
+    src: url('assets/fonts/Molle/Molle-Regular.ttf');
+}
+@font-face {
+    font-family: 'Candal';
+    src: url('assets/fonts/Candal/Candal.ttf');
+}
+
+#preload-font-Molle {
+    font-family: 'Molle', cursive;
+    text-indent: -9999px;
+    font-size: 0;
+}
+#preload-font-Candal {
+    font-family: 'Candal', sans-serif;
+    text-indent: -9999px;
+    font-size: 0;
 }

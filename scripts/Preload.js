@@ -21,7 +21,7 @@
             function loadJSON(callback) {
                 let xhr = new XMLHttpRequest();
                 xhr.overrideMimeType("application/json");
-                xhr.open('GET', 'assets/dictionary/' + this.dictionary + '.json', true);
+                xhr.open('GET', 'assets/dictionaries/' + this.dictionary.toLowerCase() + '.json', true);
                 xhr.onreadystatechange = (function (xhr, context) {
                     return function () {
                         if (xhr.readyState == 4 && xhr.status == "200") {

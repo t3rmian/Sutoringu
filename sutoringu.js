@@ -2,7 +2,6 @@
  * Created by Damian Terlecki on 15.04.17.
  */
 "use strict";
-
 let Sutoringu = function () {
     this.game = new Phaser.Game(800, 600, Phaser.AUTO, 'game', false, false);
 };

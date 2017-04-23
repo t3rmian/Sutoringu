@@ -14,6 +14,7 @@
         this.scoreChart = null;
         this.loadingLabels = ["Loading ranking", "Loading ranking.", "Loading ranking..", "Loading ranking..."]
         this.loadingIndex = 1;
+        this.font = 'Candal';
     };
 
     Sutoringu.GameOver.prototype = {
@@ -24,8 +25,6 @@
         },
 
         preload: function () {
-            this.game.load.spritesheet('button', 'assets/button.png', 384, 64);
-            this.game.load.spritesheet('scoreChart', 'assets/scoreChart.png', 64, 64, 6);
             document.getElementById('body').sakura('start', this.game.state.states['Boot'].sakuraFallOptions);
         },
 
@@ -33,7 +32,8 @@
             let horizontalCenter = this.game.width / 2;
             this.serverScore = this.game.add.text(horizontalCenter, 16 + 32 * 2 + 16, this.loadingLabels[this.loadingIndex], {
                 fontSize: '32px',
-                fill: '#000'
+                fill: '#000',
+                font: this.font
             });
             this.serverScore.anchor.setTo(0.5, 0);
             this.game.time.events.add(Phaser.Timer.SECOND * 0.5, loadingAnimation, this);
@@ -58,7 +58,8 @@
                     let prefixLabel = thatLabel + "better than ";
                     let scorePercentage = this.game.add.text(horizontalCenter, 16 + 32 * 3 + 16, prefixLabel + value + "% of players", {
                         fontSize: '32px',
-                        fill: '#000'
+                        fill: '#000',
+                        font: this.font
                     });
                     this.scoreChart.frame = Math.round(value / 100 * 5);
                     scorePercentage.anchor.setTo(0.5, 0);
@@ -72,7 +73,8 @@
                     this.serverScore.text = "";
                     this.game.add.text(horizontalCenter, 16 + 32 * 2 + 16, "Connection to the server has been lost", {
                         fontSize: '32px',
-                        fill: '#000'
+                        fill: '#000',
+                        font: this.font
                     }).anchor.setTo(0.5, 0);
                 },
                 timeout: 30,
@@ -81,14 +83,16 @@
 
             let gameOver = this.game.add.text(horizontalCenter, 16, 'GAME OVER!', {
                 fontSize: '32px',
-                fill: '#000'
+                fill: '#000',
+                font: this.font
             });
             gameOver.anchor.setTo(0.5, 0);
             let scoreLabel = this.gameMode + ' score: ';
 
             let score = this.game.add.text(horizontalCenter, 16 + 32 + 16, scoreLabel + this.score, {
                 fontSize: '32px',
-                fill: '#000'
+                fill: '#000',
+                font: this.font
             });
             score.anchor.setTo(0.5, 0);
             score.addColor('#ff0044', scoreLabel.length);
@@ -150,19 +154,26 @@
                             output += prefix + entry.meaning[i];
                             prefix = ", ";
                         }
-                        output += "<br/><b>On'yomi</b><ul>";
-                        prefix = "<li>";
-                        for (let i = 0; i < entry.onyomi.length; i++) {
-                            output += prefix + entry.onyomi[i];
-                            prefix = "</li><li>";
+                        output += "<br/>";
+                        if (entry.onyomi.length > 0) {
+                            output += "<b>On'yomi</b><ul style='list-style-type: disc;'>";
+                            prefix = "<li>";
+                            for (let i = 0; i < entry.onyomi.length; i++) {
+                                output += prefix + entry.onyomi[i];
+                                prefix = "</li><li>";
+                            }
+                            output += "</li></ul>";
                         }
-                        output += "</li></ul><b>Kun'yomi</b><ul>";
-                        prefix = "<li>";
-                        for (let i = 0; i < entry.kunyomi.length; i++) {
-                            output += prefix + entry.kunyomi[i];
-                            prefix = "</li><li>";
+                        if (entry.kunyomi.length > 0) {
+                            output += "<b>Kun'yomi</b><ul style='list-style-type: disc;'>";
+                            prefix = "<li>";
+                            for (let i = 0; i < entry.kunyomi.length; i++) {
+                                output += prefix + entry.kunyomi[i];
+                                prefix = "</li><li>";
+                            }
+                            output += "</li></ul>";
                         }
-                        output += "</li></ul><br/>";
+                        output += "<br/>";
                         return output;
                     } else {
                         return " - " + entry.romaji;

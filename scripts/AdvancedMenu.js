@@ -16,7 +16,14 @@
                 "Basic katakana": "katakana",
                 "Advanced katakana": "katakana_advanced"
             },
-            "Kanji": {"Kanji I grade": "kanji_1"}
+            "Kanji": {
+                "Kanji I grade": "kanji_1",
+                "Kanji II grade": "kanji_2",
+                "Kanji III grade": "kanji_3",
+                "Kanji IV grade": "kanji_4",
+                "Kanji V grade": "kanji_5",
+                "Kanji VI grade": "kanji_6"
+            }
         };
         this.gameMode = null;
         this.authorData = null;
@@ -28,8 +35,8 @@
         },
 
         preload: function () {
-            this.game.load.spritesheet('button', 'assets/button.png', 384, 64);
-            this.game.load.image('favicon', 'assets/favicon.ico', 256, 256);
+            this.game.load.spritesheet('button', 'assets/images/button.png', 384, 64);
+            this.game.load.image('favicon', 'assets/images/favicon.ico', 256, 256);
         },
 
         create: function () {
@@ -38,7 +45,8 @@
             let title = this.game.add.text(horizontalCenter, 16, this.title, {
                 fontSize: '48px',
                 fill: '#ff0044',
-                boundsAlignH: "center"
+                boundsAlignH: "center",
+                font: 'Molle'
             });
             let favicon = this.game.add.sprite(0, 0, 'favicon');
             favicon.scale.setTo(0.25, 0.25);
@@ -50,11 +58,11 @@
             let verticalPosition;
             let i = 0;
             let labels = this.labels[this.gameMode];
+            let verticalCenter = this.game.height / 2;
             for (let label in labels) {
                 if (!labels.hasOwnProperty(label)) {
                     continue;
                 }
-                let verticalCenter = this.game.height / 2;
                 let halfTotalHeight = (Object.keys(labels).length - 1) * (64 + 32) / 2;
                 let itemHeight = i * (64 + 32);
                 verticalPosition = verticalCenter - halfTotalHeight + itemHeight;
@@ -64,9 +72,14 @@
                 ++i;
             }
 
-            new LabelButton(this.game, horizontalCenter,
+            let isKanjiGameMode = this.gameMode === 'Kanji';
+            let menuButton = new LabelButton(this.game, horizontalCenter,
                 verticalPosition + 64 + 32 + 32,
-                "button", "Menu", onMenuClick, 1, 0, 2, this);
+                "button", "Menu", onMenuClick, 1, 0, 2, this, isKanjiGameMode);
+            if (isKanjiGameMode) {
+                menuButton.y = verticalCenter;
+                menuButton.x = 32;
+            }
 
             function setUpBackground() {
                 this.game.stage.backgroundColor = 0xffffff;

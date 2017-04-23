@@ -6,15 +6,16 @@
 
     Sutoringu.Play = function (game) {
         this.game = game;
+        this.font = "48px Courier New";
         this.gravity = 1000;
         this.bounce = 0.4;
-        this.dictionary = [];
         this.loadedDictionary = null;
         this.platforms = null;
         this.texts = null;
         this.score = 0;
         this.scoreText = null;
         this.textInput = null;
+        this.dictionary = [];
         this.missedCharacters = [];
         this.deletableSprites = [];
         this.deletableTracks = [];
@@ -36,13 +37,17 @@
     Sutoringu.Play.prototype = {
 
         init: function (dictionary, gameMode) {
+            this.dictionary = [];
+            this.missedCharacters = [];
+            this.deletableSprites = [];
+            this.deletableTracks = [];
             this.loadedDictionary = dictionary;
             this.gameMode = gameMode;
             this.score = 0;
         },
 
         preload: function () {
-            this.game.load.image('floor', 'assets/floor.png');
+            this.game.load.image('floor', 'assets/images/floor.png');
             this.textInput = this.game.state.states['Boot'].textInput;
             this.forfeitButton = this.game.state.states['Boot'].forfeitButton;
             this.forfeitButton.style.visibility = 'visible';
@@ -78,7 +83,11 @@
             function setUpTexts(play) {
                 play.texts = play.game.add.group();
                 play.texts.enableBody = true;
-                play.scoreText = play.game.add.text(16, 16, 'Score: 0', {fontSize: '32px', fill: '#000'});
+                play.scoreText = play.game.add.text(16, 16, 'Score: 0', {
+                    fontSize: '32px',
+                    fill: '#000',
+                    font: 'Candal'
+                });
             }
 
             function startGeneratingWords() {
@@ -89,7 +98,7 @@
                 let dictionaryIndex = Math.round(Math.random() * (this.loadedDictionary.length - 1));
                 let entry = this.loadedDictionary[dictionaryIndex];
                 this.loadedDictionary.splice(dictionaryIndex, 1);
-                const textStyle = {font: "32px Arial", fill: "#ff0044", fontStyle: "bold"};
+                const textStyle = {font: this.font, fill: "#ff0044", fontStyle: "bold"};
                 const text = this.game.add.text(0, 0, entry.string, textStyle);
                 text.anchor.setTo(0.5, 0.5);
                 const textSprite = this.texts.create(0, 0, null);
@@ -99,7 +108,7 @@
                 textSprite.body.bounce.y = this.bounce;
                 textSprite.body.gravity.y = this.gravity;
                 textSprite.body.collideWorldBounds = true;
-                textSprite.body.setSize(textSprite.body.width, textSprite.body.height, 0, -textSprite.body.height / 1.5);
+                textSprite.body.setSize(textSprite.body.width, textSprite.body.height, 0, -textSprite.body.height / 2);
                 entry.textSprite = textSprite;
                 entry.gameText = text;
                 this.dictionary.push(entry);
@@ -221,7 +230,7 @@
             }
         },
 
-        forfeit: function() {
+        forfeit: function () {
             this.textInput.style.visibility = 'hidden';
             this.forfeitButton.style.visibility = 'hidden';
             this.game.state.start('GameOver', true, false, this.score, this.missedCharacters, this.gameMode);

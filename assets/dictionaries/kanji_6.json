@@ -1,0 +1,2069 @@
+[
+  {
+    "string": "並",
+    "meaning": [
+      "row"
+    ],
+    "onyomi": [
+      "hei"
+    ],
+    "kunyomi": [
+      "nami",
+      "narabu"
+    ]
+  },
+  {
+    "string": "乱",
+    "meaning": [
+      "chaos"
+    ],
+    "onyomi": [
+      "ran"
+    ],
+    "kunyomi": [
+      "midareru"
+    ]
+  },
+  {
+    "string": "乳",
+    "meaning": [
+      "milk"
+    ],
+    "onyomi": [
+      "nyū"
+    ],
+    "kunyomi": [
+      "chichi"
+    ]
+  },
+  {
+    "string": "亡",
+    "meaning": [
+      "deceased"
+    ],
+    "onyomi": [
+      "bō"
+    ],
+    "kunyomi": [
+      "nakunaru"
+    ]
+  },
+  {
+    "string": "仁",
+    "meaning": [
+      "kindness"
+    ],
+    "onyomi": [
+      "jin"
+    ],
+    "kunyomi": []
+  },
+  {
+    "string": "供",
+    "meaning": [
+      "offer"
+    ],
+    "onyomi": [
+      "kyō",
+      "ku"
+    ],
+    "kunyomi": [
+      "tomo"
+    ]
+  },
+  {
+    "string": "俳",
+    "meaning": [
+      "actor"
+    ],
+    "onyomi": [
+      "hai"
+    ],
+    "kunyomi": []
+  },
+  {
+    "string": "値",
+    "meaning": [
+      "value"
+    ],
+    "onyomi": [
+      "chi"
+    ],
+    "kunyomi": [
+      "atai"
+    ]
+  },
+  {
+    "string": "傷",
+    "meaning": [
+      "wound"
+    ],
+    "onyomi": [
+      "shō"
+    ],
+    "kunyomi": [
+      "kizu"
+    ]
+  },
+  {
+    "string": "優",
+    "meaning": [
+      "superior"
+    ],
+    "onyomi": [
+      "yū"
+    ],
+    "kunyomi": [
+      "yasashii"
+    ]
+  },
+  {
+    "string": "党",
+    "meaning": [
+      "political party"
+    ],
+    "onyomi": [
+      "tō"
+    ],
+    "kunyomi": []
+  },
+  {
+    "string": "冊",
+    "meaning": [
+      "counter for books"
+    ],
+    "onyomi": [
+      "satsu"
+    ],
+    "kunyomi": []
+  },
+  {
+    "string": "処",
+    "meaning": [
+      "dispose"
+    ],
+    "onyomi": [
+      "sho"
+    ],
+    "kunyomi": []
+  },
+  {
+    "string": "刻",
+    "meaning": [
+      "engrave"
+    ],
+    "onyomi": [
+      "koku"
+    ],
+    "kunyomi": [
+      "kizamu"
+    ]
+  },
+  {
+    "string": "割",
+    "meaning": [
+      "divide"
+    ],
+    "onyomi": [
+      "katsu"
+    ],
+    "kunyomi": [
+      "waru"
+    ]
+  },
+  {
+    "string": "創",
+    "meaning": [
+      "create"
+    ],
+    "onyomi": [
+      "sō"
+    ],
+    "kunyomi": [
+      "tsukuru"
+    ]
+  },
+  {
+    "string": "劇",
+    "meaning": [
+      "drama"
+    ],
+    "onyomi": [
+      "geki"
+    ],
+    "kunyomi": []
+  },
+  {
+    "string": "勤",
+    "meaning": [
+      "diligence"
+    ],
+    "onyomi": [
+      "kin"
+    ],
+    "kunyomi": [
+      "tsutomeru"
+    ]
+  },
+  {
+    "string": "危",
+    "meaning": [
+      "dangerous"
+    ],
+    "onyomi": [
+      "ki"
+    ],
+    "kunyomi": [
+      "ayaui"
+    ]
+  },
+  {
+    "string": "卵",
+    "meaning": [
+      "egg"
+    ],
+    "onyomi": [
+      "ran"
+    ],
+    "kunyomi": [
+      "tamago"
+    ]
+  },
+  {
+    "string": "厳",
+    "meaning": [
+      "strict"
+    ],
+    "onyomi": [
+      "gen"
+    ],
+    "kunyomi": [
+      "kibishii"
+    ]
+  },
+  {
+    "string": "収",
+    "meaning": [
+      "obtain"
+    ],
+    "onyomi": [
+      "shū"
+    ],
+    "kunyomi": [
+      "osameru"
+    ]
+  },
+  {
+    "string": "后",
+    "meaning": [
+      "queen"
+    ],
+    "onyomi": [
+      "kō",
+      "gō"
+    ],
+    "kunyomi": [
+      "kisaki"
+    ]
+  },
+  {
+    "string": "否",
+    "meaning": [
+      "negate"
+    ],
+    "onyomi": [
+      "hi"
+    ],
+    "kunyomi": [
+      "ina",
+      "iya"
+    ]
+  },
+  {
+    "string": "吸",
+    "meaning": [
+      "suck"
+    ],
+    "onyomi": [
+      "kyū"
+    ],
+    "kunyomi": [
+      "suu"
+    ]
+  },
+  {
+    "string": "呼",
+    "meaning": [
+      "call"
+    ],
+    "onyomi": [
+      "ko"
+    ],
+    "kunyomi": [
+      "yobu"
+    ]
+  },
+  {
+    "string": "善",
+    "meaning": [
+      "virtue"
+    ],
+    "onyomi": [
+      "zen"
+    ],
+    "kunyomi": [
+      "yoi"
+    ]
+  },
+  {
+    "string": "困",
+    "meaning": [
+      "quandary"
+    ],
+    "onyomi": [
+      "kon"
+    ],
+    "kunyomi": [
+      "komaru"
+    ]
+  },
+  {
+    "string": "垂",
+    "meaning": [
+      "droop"
+    ],
+    "onyomi": [
+      "sui"
+    ],
+    "kunyomi": [
+      "tareru"
+    ]
+  },
+  {
+    "string": "城",
+    "meaning": [
+      "castle"
+    ],
+    "onyomi": [
+      "jō"
+    ],
+    "kunyomi": [
+      "shiro"
+    ]
+  },
+  {
+    "string": "域",
+    "meaning": [
+      "range"
+    ],
+    "onyomi": [
+      "iki"
+    ],
+    "kunyomi": []
+  },
+  {
+    "string": "奏",
+    "meaning": [
+      "play music"
+    ],
+    "onyomi": [
+      "sō"
+    ],
+    "kunyomi": [
+      "kanaderu"
+    ]
+  },
+  {
+    "string": "奮",
+    "meaning": [
+      "stirred up"
+    ],
+    "onyomi": [
+      "fun"
+    ],
+    "kunyomi": [
+      "furuu"
+    ]
+  },
+  {
+    "string": "姿",
+    "meaning": [
+      "shape"
+    ],
+    "onyomi": [
+      "shi"
+    ],
+    "kunyomi": [
+      "sugata"
+    ]
+  },
+  {
+    "string": "存",
+    "meaning": [
+      "suppose"
+    ],
+    "onyomi": [
+      "son"
+    ],
+    "kunyomi": []
+  },
+  {
+    "string": "孝",
+    "meaning": [
+      "filial piety"
+    ],
+    "onyomi": [
+      "kō"
+    ],
+    "kunyomi": []
+  },
+  {
+    "string": "宅",
+    "meaning": [
+      "home"
+    ],
+    "onyomi": [
+      "taku"
+    ],
+    "kunyomi": [
+      "ie"
+    ]
+  },
+  {
+    "string": "宇",
+    "meaning": [
+      "eaves"
+    ],
+    "onyomi": [
+      "u"
+    ],
+    "kunyomi": []
+  },
+  {
+    "string": "宗",
+    "meaning": [
+      "religion"
+    ],
+    "onyomi": [
+      "shū"
+    ],
+    "kunyomi": [
+      "sō"
+    ]
+  },
+  {
+    "string": "宙",
+    "meaning": [
+      "midair"
+    ],
+    "onyomi": [
+      "chū"
+    ],
+    "kunyomi": []
+  },
+  {
+    "string": "宝",
+    "meaning": [
+      "treasure"
+    ],
+    "onyomi": [
+      "hō"
+    ],
+    "kunyomi": [
+      "takara"
+    ]
+  },
+  {
+    "string": "宣",
+    "meaning": [
+      "proclaim"
+    ],
+    "onyomi": [
+      "sen"
+    ],
+    "kunyomi": [
+      "notamau"
+    ]
+  },
+  {
+    "string": "密",
+    "meaning": [
+      "secrecy"
+    ],
+    "onyomi": [
+      "mitsu"
+    ],
+    "kunyomi": []
+  },
+  {
+    "string": "寸",
+    "meaning": [
+      "measurement"
+    ],
+    "onyomi": [
+      "sun"
+    ],
+    "kunyomi": []
+  },
+  {
+    "string": "専",
+    "meaning": [
+      "specialty"
+    ],
+    "onyomi": [
+      "sen"
+    ],
+    "kunyomi": [
+      "moppara"
+    ]
+  },
+  {
+    "string": "射",
+    "meaning": [
+      "shoot"
+    ],
+    "onyomi": [
+      "sha"
+    ],
+    "kunyomi": [
+      "iru"
+    ]
+  },
+  {
+    "string": "将",
+    "meaning": [
+      "leader"
+    ],
+    "onyomi": [
+      "shō"
+    ],
+    "kunyomi": []
+  },
+  {
+    "string": "尊",
+    "meaning": [
+      "revered"
+    ],
+    "onyomi": [
+      "son"
+    ],
+    "kunyomi": [
+      "toutobu"
+    ]
+  },
+  {
+    "string": "就",
+    "meaning": [
+      "concerning"
+    ],
+    "onyomi": [
+      "shū"
+    ],
+    "kunyomi": [
+      "tsuku"
+    ]
+  },
+  {
+    "string": "尺",
+    "meaning": [
+      "measure of length"
+    ],
+    "onyomi": [
+      "shaku"
+    ],
+    "kunyomi": []
+  },
+  {
+    "string": "届",
+    "meaning": [
+      "deliver"
+    ],
+    "onyomi": [
+      "kai"
+    ],
+    "kunyomi": [
+      "todoku"
+    ]
+  },
+  {
+    "string": "展",
+    "meaning": [
+      "expand"
+    ],
+    "onyomi": [
+      "ten"
+    ],
+    "kunyomi": []
+  },
+  {
+    "string": "層",
+    "meaning": [
+      "stratum"
+    ],
+    "onyomi": [
+      "sō"
+    ],
+    "kunyomi": []
+  },
+  {
+    "string": "己",
+    "meaning": [
+      "self"
+    ],
+    "onyomi": [
+      "ko"
+    ],
+    "kunyomi": [
+      "onore"
+    ]
+  },
+  {
+    "string": "巻",
+    "meaning": [
+      "scroll"
+    ],
+    "onyomi": [
+      "kan"
+    ],
+    "kunyomi": [
+      "maki"
+    ]
+  },
+  {
+    "string": "幕",
+    "meaning": [
+      "curtain"
+    ],
+    "onyomi": [
+      "maku",
+      "baku"
+    ],
+    "kunyomi": []
+  },
+  {
+    "string": "干",
+    "meaning": [
+      "dry"
+    ],
+    "onyomi": [
+      "kan"
+    ],
+    "kunyomi": [
+      "hosu"
+    ]
+  },
+  {
+    "string": "幼",
+    "meaning": [
+      "infancy"
+    ],
+    "onyomi": [
+      "yō"
+    ],
+    "kunyomi": [
+      "osanai"
+    ]
+  },
+  {
+    "string": "庁",
+    "meaning": [
+      "government office"
+    ],
+    "onyomi": [
+      "chō"
+    ],
+    "kunyomi": []
+  },
+  {
+    "string": "座",
+    "meaning": [
+      "sit"
+    ],
+    "onyomi": [
+      "za"
+    ],
+    "kunyomi": [
+      "suwaru"
+    ]
+  },
+  {
+    "string": "延",
+    "meaning": [
+      "prolong"
+    ],
+    "onyomi": [
+      "en"
+    ],
+    "kunyomi": [
+      "nobasu"
+    ]
+  },
+  {
+    "string": "律",
+    "meaning": [
+      "rhythm"
+    ],
+    "onyomi": [
+      "ritsu"
+    ],
+    "kunyomi": []
+  },
+  {
+    "string": "従",
+    "meaning": [
+      "obey"
+    ],
+    "onyomi": [
+      "jū"
+    ],
+    "kunyomi": [
+      "shitagau"
+    ]
+  },
+  {
+    "string": "忘",
+    "meaning": [
+      "forget"
+    ],
+    "onyomi": [
+      "bō"
+    ],
+    "kunyomi": [
+      "wasureru"
+    ]
+  },
+  {
+    "string": "忠",
+    "meaning": [
+      "loyalty"
+    ],
+    "onyomi": [
+      "chū"
+    ],
+    "kunyomi": []
+  },
+  {
+    "string": "憲",
+    "meaning": [
+      "constitution"
+    ],
+    "onyomi": [
+      "ken"
+    ],
+    "kunyomi": []
+  },
+  {
+    "string": "我",
+    "meaning": [
+      "ego"
+    ],
+    "onyomi": [
+      "ga"
+    ],
+    "kunyomi": [
+      "ware"
+    ]
+  },
+  {
+    "string": "批",
+    "meaning": [
+      "criticism"
+    ],
+    "onyomi": [
+      "hi"
+    ],
+    "kunyomi": []
+  },
+  {
+    "string": "担",
+    "meaning": [
+      "shouldering"
+    ],
+    "onyomi": [
+      "tan"
+    ],
+    "kunyomi": [
+      "ninau"
+    ]
+  },
+  {
+    "string": "拝",
+    "meaning": [
+      "worship"
+    ],
+    "onyomi": [
+      "hai"
+    ],
+    "kunyomi": [
+      "ogamu"
+    ]
+  },
+  {
+    "string": "拡",
+    "meaning": [
+      "broaden"
+    ],
+    "onyomi": [
+      "kaku"
+    ],
+    "kunyomi": [
+      "hirogeru"
+    ]
+  },
+  {
+    "string": "捨",
+    "meaning": [
+      "discard"
+    ],
+    "onyomi": [
+      "sha"
+    ],
+    "kunyomi": [
+      "suteru"
+    ]
+  },
+  {
+    "string": "探",
+    "meaning": [
+      "grope"
+    ],
+    "onyomi": [
+      "tan"
+    ],
+    "kunyomi": [
+      "sagasu"
+    ]
+  },
+  {
+    "string": "推",
+    "meaning": [
+      "infer"
+    ],
+    "onyomi": [
+      "sui"
+    ],
+    "kunyomi": []
+  },
+  {
+    "string": "揮",
+    "meaning": [
+      "brandish"
+    ],
+    "onyomi": [
+      "ki"
+    ],
+    "kunyomi": []
+  },
+  {
+    "string": "操",
+    "meaning": [
+      "maneuver"
+    ],
+    "onyomi": [
+      "sō"
+    ],
+    "kunyomi": [
+      "ayatsuru"
+    ]
+  },
+  {
+    "string": "敬",
+    "meaning": [
+      "respect"
+    ],
+    "onyomi": [
+      "kei"
+    ],
+    "kunyomi": [
+      "uyamau"
+    ]
+  },
+  {
+    "string": "映",
+    "meaning": [
+      "reflect"
+    ],
+    "onyomi": [
+      "ei"
+    ],
+    "kunyomi": [
+      "utsuru"
+    ]
+  },
+  {
+    "string": "晩",
+    "meaning": [
+      "nightfall"
+    ],
+    "onyomi": [
+      "ban"
+    ],
+    "kunyomi": []
+  },
+  {
+    "string": "暖",
+    "meaning": [
+      "warmth"
+    ],
+    "onyomi": [
+      "dan"
+    ],
+    "kunyomi": [
+      "atatakai"
+    ]
+  },
+  {
+    "string": "暮",
+    "meaning": [
+      "livelihood"
+    ],
+    "onyomi": [
+      "bo"
+    ],
+    "kunyomi": [
+      "kurasu"
+    ]
+  },
+  {
+    "string": "朗",
+    "meaning": [
+      "melodious"
+    ],
+    "onyomi": [
+      "rō"
+    ],
+    "kunyomi": [
+      "hogaraka"
+    ]
+  },
+  {
+    "string": "机",
+    "meaning": [
+      "desk"
+    ],
+    "onyomi": [
+      "ki"
+    ],
+    "kunyomi": [
+      "tsukue"
+    ]
+  },
+  {
+    "string": "枚",
+    "meaning": [
+      "sheet of..."
+    ],
+    "onyomi": [
+      "mai"
+    ],
+    "kunyomi": []
+  },
+  {
+    "string": "染",
+    "meaning": [
+      "dye"
+    ],
+    "onyomi": [
+      "sen"
+    ],
+    "kunyomi": [
+      "someru"
+    ]
+  },
+  {
+    "string": "株",
+    "meaning": [
+      "stocks"
+    ],
+    "onyomi": [
+      "shu"
+    ],
+    "kunyomi": [
+      "kabu"
+    ]
+  },
+  {
+    "string": "棒",
+    "meaning": [
+      "rod"
+    ],
+    "onyomi": [
+      "bō"
+    ],
+    "kunyomi": []
+  },
+  {
+    "string": "模",
+    "meaning": [
+      "imitation"
+    ],
+    "onyomi": [
+      "mo",
+      "bo"
+    ],
+    "kunyomi": []
+  },
+  {
+    "string": "権",
+    "meaning": [
+      "rights"
+    ],
+    "onyomi": [
+      "ken"
+    ],
+    "kunyomi": []
+  },
+  {
+    "string": "樹",
+    "meaning": [
+      "trees"
+    ],
+    "onyomi": [
+      "ju"
+    ],
+    "kunyomi": [
+      "ki"
+    ]
+  },
+  {
+    "string": "欲",
+    "meaning": [
+      "longing"
+    ],
+    "onyomi": [
+      "yoku"
+    ],
+    "kunyomi": [
+      "hoshii"
+    ]
+  },
+  {
+    "string": "段",
+    "meaning": [
+      "steps"
+    ],
+    "onyomi": [
+      "dan"
+    ],
+    "kunyomi": []
+  },
+  {
+    "string": "沿",
+    "meaning": [
+      "run alongside"
+    ],
+    "onyomi": [
+      "en"
+    ],
+    "kunyomi": [
+      "sou"
+    ]
+  },
+  {
+    "string": "泉",
+    "meaning": [
+      "fountain"
+    ],
+    "onyomi": [
+      "sen"
+    ],
+    "kunyomi": [
+      "izumi"
+    ]
+  },
+  {
+    "string": "洗",
+    "meaning": [
+      "wash"
+    ],
+    "onyomi": [
+      "sen"
+    ],
+    "kunyomi": [
+      "arau"
+    ]
+  },
+  {
+    "string": "派",
+    "meaning": [
+      "sect"
+    ],
+    "onyomi": [
+      "ha"
+    ],
+    "kunyomi": []
+  },
+  {
+    "string": "済",
+    "meaning": [
+      "settle"
+    ],
+    "onyomi": [
+      "sai"
+    ],
+    "kunyomi": [
+      "sumu"
+    ]
+  },
+  {
+    "string": "源",
+    "meaning": [
+      "source"
+    ],
+    "onyomi": [
+      "gen"
+    ],
+    "kunyomi": [
+      "minamoto"
+    ]
+  },
+  {
+    "string": "潮",
+    "meaning": [
+      "tide"
+    ],
+    "onyomi": [
+      "chō"
+    ],
+    "kunyomi": [
+      "shio"
+    ]
+  },
+  {
+    "string": "激",
+    "meaning": [
+      "violent"
+    ],
+    "onyomi": [
+      "geki"
+    ],
+    "kunyomi": [
+      "hageshii"
+    ]
+  },
+  {
+    "string": "灰",
+    "meaning": [
+      "ashes"
+    ],
+    "onyomi": [
+      "kai"
+    ],
+    "kunyomi": [
+      "hai"
+    ]
+  },
+  {
+    "string": "熟",
+    "meaning": [
+      "ripen"
+    ],
+    "onyomi": [
+      "juku"
+    ],
+    "kunyomi": [
+      "ureru"
+    ]
+  },
+  {
+    "string": "片",
+    "meaning": [
+      "onesided"
+    ],
+    "onyomi": [
+      "hen"
+    ],
+    "kunyomi": [
+      "kata"
+    ]
+  },
+  {
+    "string": "班",
+    "meaning": [
+      "corps"
+    ],
+    "onyomi": [
+      "han"
+    ],
+    "kunyomi": []
+  },
+  {
+    "string": "異",
+    "meaning": [
+      "uncommon"
+    ],
+    "onyomi": [
+      "i"
+    ],
+    "kunyomi": [
+      "kotonaru"
+    ]
+  },
+  {
+    "string": "疑",
+    "meaning": [
+      "doubt"
+    ],
+    "onyomi": [
+      "gi"
+    ],
+    "kunyomi": [
+      "utagau"
+    ]
+  },
+  {
+    "string": "痛",
+    "meaning": [
+      "pain"
+    ],
+    "onyomi": [
+      "tsū"
+    ],
+    "kunyomi": [
+      "itai"
+    ]
+  },
+  {
+    "string": "皇",
+    "meaning": [
+      "emperor"
+    ],
+    "onyomi": [
+      "kō",
+      "ō"
+    ],
+    "kunyomi": []
+  },
+  {
+    "string": "盛",
+    "meaning": [
+      "prosper"
+    ],
+    "onyomi": [
+      "sei"
+    ],
+    "kunyomi": [
+      "moru"
+    ]
+  },
+  {
+    "string": "盟",
+    "meaning": [
+      "alliance"
+    ],
+    "onyomi": [
+      "mei"
+    ],
+    "kunyomi": []
+  },
+  {
+    "string": "看",
+    "meaning": [
+      "watch over"
+    ],
+    "onyomi": [
+      "kan"
+    ],
+    "kunyomi": []
+  },
+  {
+    "string": "砂",
+    "meaning": [
+      "sand"
+    ],
+    "onyomi": [
+      "sa",
+      "sha"
+    ],
+    "kunyomi": [
+      "suna"
+    ]
+  },
+  {
+    "string": "磁",
+    "meaning": [
+      "magnet"
+    ],
+    "onyomi": [
+      "ji"
+    ],
+    "kunyomi": []
+  },
+  {
+    "string": "私",
+    "meaning": [
+      "me"
+    ],
+    "onyomi": [
+      "shi"
+    ],
+    "kunyomi": [
+      "watakushi",
+      "watashi"
+    ]
+  },
+  {
+    "string": "秘",
+    "meaning": [
+      "secret"
+    ],
+    "onyomi": [
+      "hi"
+    ],
+    "kunyomi": [
+      "himeru"
+    ]
+  },
+  {
+    "string": "穀",
+    "meaning": [
+      "cereal"
+    ],
+    "onyomi": [
+      "koku"
+    ],
+    "kunyomi": []
+  },
+  {
+    "string": "穴",
+    "meaning": [
+      "hole"
+    ],
+    "onyomi": [
+      "ketsu"
+    ],
+    "kunyomi": [
+      "ana"
+    ]
+  },
+  {
+    "string": "窓",
+    "meaning": [
+      "window"
+    ],
+    "onyomi": [
+      "sō"
+    ],
+    "kunyomi": [
+      "mado"
+    ]
+  },
+  {
+    "string": "筋",
+    "meaning": [
+      "muscle"
+    ],
+    "onyomi": [
+      "kin"
+    ],
+    "kunyomi": [
+      "suji"
+    ]
+  },
+  {
+    "string": "策",
+    "meaning": [
+      "scheme"
+    ],
+    "onyomi": [
+      "saku"
+    ],
+    "kunyomi": []
+  },
+  {
+    "string": "簡",
+    "meaning": [
+      "simplicity"
+    ],
+    "onyomi": [
+      "kan"
+    ],
+    "kunyomi": []
+  },
+  {
+    "string": "糖",
+    "meaning": [
+      "sugar"
+    ],
+    "onyomi": [
+      "tō"
+    ],
+    "kunyomi": []
+  },
+  {
+    "string": "系",
+    "meaning": [
+      "lineage"
+    ],
+    "onyomi": [
+      "kei"
+    ],
+    "kunyomi": []
+  },
+  {
+    "string": "紅",
+    "meaning": [
+      "crimson"
+    ],
+    "onyomi": [
+      "kō"
+    ],
+    "kunyomi": [
+      "beni",
+      "kurenai"
+    ]
+  },
+  {
+    "string": "納",
+    "meaning": [
+      "settlement"
+    ],
+    "onyomi": [
+      "nō"
+    ],
+    "kunyomi": [
+      "osameru"
+    ]
+  },
+  {
+    "string": "純",
+    "meaning": [
+      "genuine"
+    ],
+    "onyomi": [
+      "jun"
+    ],
+    "kunyomi": []
+  },
+  {
+    "string": "絹",
+    "meaning": [
+      "silk"
+    ],
+    "onyomi": [
+      "ken"
+    ],
+    "kunyomi": [
+      "kinu"
+    ]
+  },
+  {
+    "string": "縦",
+    "meaning": [
+      "vertical"
+    ],
+    "onyomi": [
+      "jū"
+    ],
+    "kunyomi": [
+      "tate"
+    ]
+  },
+  {
+    "string": "縮",
+    "meaning": [
+      "shrink"
+    ],
+    "onyomi": [
+      "shuku"
+    ],
+    "kunyomi": [
+      "chidimu"
+    ]
+  },
+  {
+    "string": "署",
+    "meaning": [
+      "government office"
+    ],
+    "onyomi": [
+      "sho"
+    ],
+    "kunyomi": []
+  },
+  {
+    "string": "翌",
+    "meaning": [
+      "forthcoming"
+    ],
+    "onyomi": [
+      "yoku"
+    ],
+    "kunyomi": []
+  },
+  {
+    "string": "聖",
+    "meaning": [
+      "holy"
+    ],
+    "onyomi": [
+      "sei"
+    ],
+    "kunyomi": []
+  },
+  {
+    "string": "肺",
+    "meaning": [
+      "lung"
+    ],
+    "onyomi": [
+      "hai"
+    ],
+    "kunyomi": []
+  },
+  {
+    "string": "背",
+    "meaning": [
+      "back"
+    ],
+    "onyomi": [
+      "hai"
+    ],
+    "kunyomi": [
+      "se"
+    ]
+  },
+  {
+    "string": "胸",
+    "meaning": [
+      "bosom"
+    ],
+    "onyomi": [
+      "kyō"
+    ],
+    "kunyomi": [
+      "mune"
+    ]
+  },
+  {
+    "string": "脳",
+    "meaning": [
+      "brain"
+    ],
+    "onyomi": [
+      "nō"
+    ],
+    "kunyomi": []
+  },
+  {
+    "string": "腹",
+    "meaning": [
+      "abdomen"
+    ],
+    "onyomi": [
+      "fuku"
+    ],
+    "kunyomi": [
+      "hara"
+    ]
+  },
+  {
+    "string": "臓",
+    "meaning": [
+      "entrails"
+    ],
+    "onyomi": [
+      "zō"
+    ],
+    "kunyomi": []
+  },
+  {
+    "string": "臨",
+    "meaning": [
+      "lookover"
+    ],
+    "onyomi": [
+      "rin"
+    ],
+    "kunyomi": [
+      "nozomu"
+    ]
+  },
+  {
+    "string": "至",
+    "meaning": [
+      "climax"
+    ],
+    "onyomi": [
+      "shi"
+    ],
+    "kunyomi": [
+      "itaru"
+    ]
+  },
+  {
+    "string": "若",
+    "meaning": [
+      "young"
+    ],
+    "onyomi": [
+      "jaku"
+    ],
+    "kunyomi": [
+      "wakai"
+    ]
+  },
+  {
+    "string": "著",
+    "meaning": [
+      "renowned"
+    ],
+    "onyomi": [
+      "cho"
+    ],
+    "kunyomi": [
+      "arawasu",
+      "ichijirushii"
+    ]
+  },
+  {
+    "string": "蒸",
+    "meaning": [
+      "foment"
+    ],
+    "onyomi": [
+      "jō"
+    ],
+    "kunyomi": [
+      "musu"
+    ]
+  },
+  {
+    "string": "蔵",
+    "meaning": [
+      "storehouse"
+    ],
+    "onyomi": [
+      "zō"
+    ],
+    "kunyomi": [
+      "kura"
+    ]
+  },
+  {
+    "string": "蚕",
+    "meaning": [
+      "silkworm"
+    ],
+    "onyomi": [
+      "san"
+    ],
+    "kunyomi": [
+      "kaiko"
+    ]
+  },
+  {
+    "string": "衆",
+    "meaning": [
+      "masses"
+    ],
+    "onyomi": [
+      "shū"
+    ],
+    "kunyomi": []
+  },
+  {
+    "string": "裁",
+    "meaning": [
+      "judge"
+    ],
+    "onyomi": [
+      "sai"
+    ],
+    "kunyomi": [
+      "sabaku"
+    ]
+  },
+  {
+    "string": "装",
+    "meaning": [
+      "attire"
+    ],
+    "onyomi": [
+      "sō",
+      "shō"
+    ],
+    "kunyomi": [
+      "yosoou"
+    ]
+  },
+  {
+    "string": "裏",
+    "meaning": [
+      "rear"
+    ],
+    "onyomi": [
+      "ri"
+    ],
+    "kunyomi": [
+      "ura"
+    ]
+  },
+  {
+    "string": "補",
+    "meaning": [
+      "supplement"
+    ],
+    "onyomi": [
+      "ho"
+    ],
+    "kunyomi": [
+      "oginau"
+    ]
+  },
+  {
+    "string": "視",
+    "meaning": [
+      "look at"
+    ],
+    "onyomi": [
+      "shi"
+    ],
+    "kunyomi": [
+      "miru"
+    ]
+  },
+  {
+    "string": "覧",
+    "meaning": [
+      "perusal"
+    ],
+    "onyomi": [
+      "ran"
+    ],
+    "kunyomi": []
+  },
+  {
+    "string": "討",
+    "meaning": [
+      "chastise"
+    ],
+    "onyomi": [
+      "tō"
+    ],
+    "kunyomi": [
+      "utsu"
+    ]
+  },
+  {
+    "string": "訪",
+    "meaning": [
+      "visit"
+    ],
+    "onyomi": [
+      "hō"
+    ],
+    "kunyomi": [
+      "otozureru"
+    ]
+  },
+  {
+    "string": "訳",
+    "meaning": [
+      "translate"
+    ],
+    "onyomi": [
+      "yaku"
+    ],
+    "kunyomi": [
+      "wake"
+    ]
+  },
+  {
+    "string": "詞",
+    "meaning": [
+      "poetry"
+    ],
+    "onyomi": [
+      "shi"
+    ],
+    "kunyomi": [
+      "kotoba"
+    ]
+  },
+  {
+    "string": "誌",
+    "meaning": [
+      "document"
+    ],
+    "onyomi": [
+      "shi"
+    ],
+    "kunyomi": []
+  },
+  {
+    "string": "認",
+    "meaning": [
+      "recognize"
+    ],
+    "onyomi": [
+      "nin"
+    ],
+    "kunyomi": [
+      "mitomeru"
+    ]
+  },
+  {
+    "string": "誕",
+    "meaning": [
+      "born"
+    ],
+    "onyomi": [
+      "tan"
+    ],
+    "kunyomi": []
+  },
+  {
+    "string": "誠",
+    "meaning": [
+      "sincerity"
+    ],
+    "onyomi": [
+      "sei"
+    ],
+    "kunyomi": [
+      "makoto"
+    ]
+  },
+  {
+    "string": "誤",
+    "meaning": [
+      "mistake"
+    ],
+    "onyomi": [
+      "go"
+    ],
+    "kunyomi": [
+      "ayamaru"
+    ]
+  },
+  {
+    "string": "論",
+    "meaning": [
+      "theory"
+    ],
+    "onyomi": [
+      "ron"
+    ],
+    "kunyomi": []
+  },
+  {
+    "string": "諸",
+    "meaning": [
+      "various"
+    ],
+    "onyomi": [
+      "sho"
+    ],
+    "kunyomi": [
+      "moro"
+    ]
+  },
+  {
+    "string": "警",
+    "meaning": [
+      "admonish"
+    ],
+    "onyomi": [
+      "kei"
+    ],
+    "kunyomi": [
+      "imashimeru"
+    ]
+  },
+  {
+    "string": "貴",
+    "meaning": [
+      "precious"
+    ],
+    "onyomi": [
+      "ki"
+    ],
+    "kunyomi": [
+      "tattoi"
+    ]
+  },
+  {
+    "string": "賃",
+    "meaning": [
+      "fare"
+    ],
+    "onyomi": [
+      "chin"
+    ],
+    "kunyomi": []
+  },
+  {
+    "string": "遺",
+    "meaning": [
+      "bequeath"
+    ],
+    "onyomi": [
+      "i"
+    ],
+    "kunyomi": []
+  },
+  {
+    "string": "郵",
+    "meaning": [
+      "mail"
+    ],
+    "onyomi": [
+      "yū"
+    ],
+    "kunyomi": []
+  },
+  {
+    "string": "郷",
+    "meaning": [
+      "home town"
+    ],
+    "onyomi": [
+      "kyō"
+    ],
+    "kunyomi": [
+      "gō"
+    ]
+  },
+  {
+    "string": "針",
+    "meaning": [
+      "needle"
+    ],
+    "onyomi": [
+      "shin"
+    ],
+    "kunyomi": [
+      "hari"
+    ]
+  },
+  {
+    "string": "鋼",
+    "meaning": [
+      "steel"
+    ],
+    "onyomi": [
+      "kō"
+    ],
+    "kunyomi": [
+      "hagane"
+    ]
+  },
+  {
+    "string": "閉",
+    "meaning": [
+      "closed"
+    ],
+    "onyomi": [
+      "hei"
+    ],
+    "kunyomi": [
+      "shimeru"
+    ]
+  },
+  {
+    "string": "閣",
+    "meaning": [
+      "tower"
+    ],
+    "onyomi": [
+      "kaku"
+    ],
+    "kunyomi": []
+  },
+  {
+    "string": "降",
+    "meaning": [
+      "descend"
+    ],
+    "onyomi": [
+      "kō"
+    ],
+    "kunyomi": [
+      "oriru"
+    ]
+  },
+  {
+    "string": "陛",
+    "meaning": [
+      "majesty"
+    ],
+    "onyomi": [
+      "hei"
+    ],
+    "kunyomi": []
+  },
+  {
+    "string": "除",
+    "meaning": [
+      "exclude"
+    ],
+    "onyomi": [
+      "jo",
+      "ji"
+    ],
+    "kunyomi": [
+      "nozoku"
+    ]
+  },
+  {
+    "string": "障",
+    "meaning": [
+      "hurt"
+    ],
+    "onyomi": [
+      "shō"
+    ],
+    "kunyomi": [
+      "sawaru"
+    ]
+  },
+  {
+    "string": "難",
+    "meaning": [
+      "difficult"
+    ],
+    "onyomi": [
+      "nan"
+    ],
+    "kunyomi": [
+      "muzukashii"
+    ]
+  },
+  {
+    "string": "革",
+    "meaning": [
+      "leather"
+    ],
+    "onyomi": [
+      "kaku"
+    ],
+    "kunyomi": [
+      "kawa"
+    ]
+  },
+  {
+    "string": "頂",
+    "meaning": [
+      "place on the head"
+    ],
+    "onyomi": [
+      "chō"
+    ],
+    "kunyomi": [
+      "itadaku"
+    ]
+  },
+  {
+    "string": "骨",
+    "meaning": [
+      "bone"
+    ],
+    "onyomi": [
+      "kotsu"
+    ],
+    "kunyomi": [
+      "hone"
+    ]
+  }
+]
