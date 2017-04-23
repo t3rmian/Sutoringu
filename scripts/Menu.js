@@ -1,5 +1,5 @@
 /**
- * Created by t3r on 16.04.17.
+ * Created by Damian Terlecki on 16.04.17.
  */
 (function () {
     'use strict';
@@ -13,11 +13,6 @@
     };
 
     Sutoringu.Menu.prototype = {
-        preload: function () {
-            this.game.load.spritesheet('button', 'assets/images/button.png', 384, 64);
-            this.game.load.image('favicon', 'assets/images/favicon.ico', 256, 256);
-        },
-
         create: function () {
             setUpBackground.call(this);
             let horizontalCenter = this.game.width / 2;
@@ -50,14 +45,13 @@
                 "button", this.about, onAboutClick, 1, 0, 2, this);
 
             function setUpBackground() {
-                this.game.stage.backgroundColor = 0xffffff;
                 const sakuraCanvas = this.game.make.bitmapData(this.game.world.width, this.game.world.height);
                 new Sakura(sakuraCanvas, '#ff000000', '#ffa7c5').create().paint();
                 sakuraCanvas.addToWorld();
             }
 
             function onGameplayClick() {
-                this.game.state.start('AdvancedMenu', true, true, this.label.text);
+                this.game.state.start('AdvancedMenu', true, false, this.label.text);
             }
 
             function onAboutClick() {
@@ -68,7 +62,9 @@
                     "<b>Sutoringu v1.0.0</br>Created by <a href='https://t3r1jj.github.io'>Damian Terlecki</a></b>" +
                     "<div id='author-loader' class='author-loader' style='margin-left: auto;margin-right:auto;margin-top: 8px;'></div></br>" +
                     "<div style='text-align: center'><b>Attributions; build on:</b>" +
-                    "<ul style='font-size: 0.67em;text-align: left'><li><a href='https://phaser.io/'>Phaser</a> CE v2.7.6 - Copyright (c) 2017 Richard Davey, Photon Storm Ltd. [MIT]</li>" +
+                    "<ul style='font-size: 0.67em;text-align: left'>" +
+                    "<li><a href='https://phaser.io/'>Phaser</a> CE v2.7.6 - Copyright (c) 2017 Richard Davey, Photon Storm Ltd. [MIT]</li>" +
+                    "<li><a href='https://github.com/Flaxis/slick-ui'>SlickUI</a> Phaser plugin - Flaxis [Public Domain]</li>" +
                     "<li><a href='https://github.com/timoschaefer/jQuery-Sakura'>jQuery-Sakura</a> - Copyright (c) 2014 Timo Schäfer [MIT]</li>" +
                     "<li>Image assets - <a href='https://pixabay.com/'>Pixabay</a> [CC0 Public Domain]</li>" +
                     "<li>Dictionary data - <a href='https://www.wikipedia.org/'>Wikipedia</a> [CC BY-SA 3.0]</li>" +

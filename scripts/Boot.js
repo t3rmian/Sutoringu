@@ -1,5 +1,5 @@
 /**
- * Created by t3r on 16.04.17.
+ * Created by Damian Terlecki on 16.04.17.
  */
 (function () {
     'use strict';
@@ -24,6 +24,12 @@
     };
 
     Sutoringu.Boot.prototype = {
+        preload: function () {
+            this.game.load.image('favicon', 'assets/images/favicon.ico', 256, 256);
+            this.game.load.image('floor', 'assets/images/floor.png');
+            this.game.load.spritesheet('button', 'assets/images/button.png', 384, 64);
+            this.game.load.spritesheet('scoreChart', 'assets/images/scoreChart.png', 64, 64, 6);
+        },
         create: function () {
             this.game.stage.backgroundColor = 0xffffff;
             this.forfeitButton = document.getElementById('forfeit');

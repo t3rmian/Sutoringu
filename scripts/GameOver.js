@@ -1,5 +1,5 @@
 /**
- * Created by t3r on 16.04.17.
+ * Created by Damian Terlecki on 16.04.17.
  */
 (function () {
     'use strict';
@@ -15,6 +15,11 @@
         this.loadingLabels = ["Loading ranking", "Loading ranking.", "Loading ranking..", "Loading ranking..."]
         this.loadingIndex = 1;
         this.font = 'Candal';
+        this.defaultFont = {
+            fontSize: '30px',
+            fill: '#000',
+            font: this.font
+        };
     };
 
     Sutoringu.GameOver.prototype = {
@@ -22,19 +27,13 @@
             this.score = score;
             this.missedCharacters = missedCharacters;
             this.gameMode = gameMode;
-        },
-
-        preload: function () {
-            document.getElementById('body').sakura('start', this.game.state.states['Boot'].sakuraFallOptions);
+            this.loadingIndex = 1;
         },
 
         create: function () {
+            document.getElementById('body').sakura('start', this.game.state.states['Boot'].sakuraFallOptions);
             let horizontalCenter = this.game.width / 2;
-            this.serverScore = this.game.add.text(horizontalCenter, 16 + 32 * 2 + 16, this.loadingLabels[this.loadingIndex], {
-                fontSize: '32px',
-                fill: '#000',
-                font: this.font
-            });
+            this.serverScore = this.game.add.text(horizontalCenter, 16 + 32 * 2 + 16, this.loadingLabels[this.loadingIndex], this.defaultFont);
             this.serverScore.anchor.setTo(0.5, 0);
             this.game.time.events.add(Phaser.Timer.SECOND * 0.5, loadingAnimation, this);
             this.log = SparkMD5.hash(Math.floor(new Date() / 1000).toString() + this.score.toString());
@@ -53,15 +52,11 @@
                     this.serverScore.text = placedLabel + json.scoreRow + " out of " + json.rows;
                     this.serverScore.anchor.setTo(0.5, 0);
                     this.serverScore.addColor('#ff0044', placedLabel.length);
-                    let value = ((json.rows - json.scoreRow + 1) / json.rows * 100).toFixed(2);
+                    let value = (json.rows - json.scoreRow + 1) / json.rows;
                     let thatLabel = "That makes you ";
                     let prefixLabel = thatLabel + "better than ";
-                    let scorePercentage = this.game.add.text(horizontalCenter, 16 + 32 * 3 + 16, prefixLabel + value + "% of players", {
-                        fontSize: '32px',
-                        fill: '#000',
-                        font: this.font
-                    });
-                    this.scoreChart.frame = Math.round(value / 100 * 5);
+                    let scorePercentage = this.game.add.text(horizontalCenter, 16 + 32 * 3 + 16, prefixLabel + Math.round(value * 100) + "% of players", this.defaultFont);
+                    this.scoreChart.frame = Math.round(value * 5);
                     scorePercentage.anchor.setTo(0.5, 0);
                     scorePercentage.addColor('#ff0044', thatLabel.length);
                 },
@@ -71,29 +66,17 @@
                         return;
                     }
                     this.serverScore.text = "";
-                    this.game.add.text(horizontalCenter, 16 + 32 * 2 + 16, "Connection to the server has been lost", {
-                        fontSize: '32px',
-                        fill: '#000',
-                        font: this.font
-                    }).anchor.setTo(0.5, 0);
+                    this.game.add.text(horizontalCenter, 16 + 32 * 2 + 16, "Connection to the server has been lost", this.defaultFont).anchor.setTo(0.5, 0);
                 },
                 timeout: 30,
                 context: this
             });
 
-            let gameOver = this.game.add.text(horizontalCenter, 16, 'GAME OVER!', {
-                fontSize: '32px',
-                fill: '#000',
-                font: this.font
-            });
+            let gameOver = this.game.add.text(horizontalCenter, 16, 'GAME OVER!', this.defaultFont);
             gameOver.anchor.setTo(0.5, 0);
             let scoreLabel = this.gameMode + ' score: ';
 
-            let score = this.game.add.text(horizontalCenter, 16 + 32 + 16, scoreLabel + this.score, {
-                fontSize: '32px',
-                fill: '#000',
-                font: this.font
-            });
+            let score = this.game.add.text(horizontalCenter, 16 + 32 + 16, scoreLabel + this.score, this.defaultFont);
             score.anchor.setTo(0.5, 0);
             score.addColor('#ff0044', scoreLabel.length);
 

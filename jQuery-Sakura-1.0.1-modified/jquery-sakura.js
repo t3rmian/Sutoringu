@@ -176,7 +176,8 @@
                         height: height + 'px',
                         left: (Math.random() * document.documentElement.clientWidth - 100) + 'px',
                         'margin-top': (-(Math.floor(Math.random() * 20) + 15)) + 'px',
-                        width: width + 'px'
+                        width: width + 'px',
+                        'z-index': 900
                     });
 
                 target.append(petal);

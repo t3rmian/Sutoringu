@@ -1,5 +1,5 @@
 /**
- * Created by t3r on 18.04.17.
+ * Created by Damian Terlecki on 18.04.17.
  */
 'use strict';
 

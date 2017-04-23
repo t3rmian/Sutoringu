@@ -1,5 +1,5 @@
 /**
- * Created by t3r on 23.04.17.
+ * Created by Damian Terlecki on 23.04.17.
  */
 (function () {
     'use strict';
@@ -32,11 +32,6 @@
     Sutoringu.AdvancedMenu.prototype = {
         init: function (gameMode) {
             this.gameMode = gameMode;
-        },
-
-        preload: function () {
-            this.game.load.spritesheet('button', 'assets/images/button.png', 384, 64);
-            this.game.load.image('favicon', 'assets/images/favicon.ico', 256, 256);
         },
 
         create: function () {
@@ -82,7 +77,6 @@
             }
 
             function setUpBackground() {
-                this.game.stage.backgroundColor = 0xffffff;
                 const sakuraCanvas = this.game.make.bitmapData(this.game.world.width, this.game.world.height);
                 new Sakura(sakuraCanvas, '#ff000000', '#ffa7c5').create().paint();
                 sakuraCanvas.addToWorld();
@@ -93,7 +87,7 @@
             }
 
             function onGameplayClick() {
-                this.game.state.start('Preload', true, true, this.context.labels[this.context.gameMode][this.label.text], this.label.text);
+                this.game.state.start('Preload', true, false, this.context.labels[this.context.gameMode][this.label.text], this.label.text);
             }
         }
     };

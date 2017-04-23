@@ -29,6 +29,8 @@ body {
 canvas {
     display: block;
     margin: auto;
+    position: relative;
+    z-index: 200;
 }
 
 #textInput {
@@ -42,7 +44,7 @@ canvas {
 .modal {
     display: none;
     position: fixed;
-    z-index: 1;
+    z-index: 500;
     left: 0;
     top: 0;
     width: 100%;
@@ -103,6 +105,7 @@ canvas {
     font-family: 'Molle';
     src: url('assets/fonts/Molle/Molle-Regular.ttf');
 }
+
 @font-face {
     font-family: 'Candal';
     src: url('assets/fonts/Candal/Candal.ttf');
@@ -113,8 +116,44 @@ canvas {
     text-indent: -9999px;
     font-size: 0;
 }
+
 #preload-font-Candal {
     font-family: 'Candal', sans-serif;
     text-indent: -9999px;
     font-size: 0;
+}
+
+.leaf {
+    border-bottom-left-radius: 300px;
+    border-top-right-radius: 300px;
+    background-color: pink;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    z-index: 100;
+}
+
+@media (min-height: 800px) and (min-width: 1400px) {
+
+    .leaf-top {
+        margin-top: -360px;
+        width: 200px;
+        height: 100px;
+    }
+
+    .leaf-bottom {
+        margin-top: +280px;
+        width: 100px;
+        height: 200px;
+    }
+
+    .leaf-left {
+        margin-left: -420px;
+        transform: translate(-50%, -50%) rotate(45deg);
+    }
+
+    .leaf-right {
+        margin-left: 420px;
+        transform: translate(-50%, -50%) rotate(135deg) scaleX(-1);
+    }
 }

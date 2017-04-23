@@ -1,5 +1,5 @@
 /**
- * Created by t3r on 19.04.17.
+ * Created by Damian Terlecki on 19.04.17.
  */
 'use strict';
 let LabelButton = function (game, x, y, key, label, onClick, overFrame, outFrame, downFrame, context, vertical) {

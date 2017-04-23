@@ -1,5 +1,5 @@
 /**
- * Created by t3r on 16.04.17.
+ * Created by Damian Terlecki on 16.04.17.
  */
 (function () {
     'use strict';
@@ -14,7 +14,6 @@
             this.gameMode = gameMode;
         },
         create: function () {
-            this.game.stage.backgroundColor = 0xffffff;
             document.getElementById('body').sakura('stop');
             loadJSON.call(this, loadDictionary);
 
@@ -33,7 +32,7 @@
             }
 
             function loadDictionary(response) {
-                this.game.state.start('Play', true, true, JSON.parse(response), this.gameMode);
+                this.game.state.start('Play', true, false, JSON.parse(response), this.gameMode);
             }
         }
     }

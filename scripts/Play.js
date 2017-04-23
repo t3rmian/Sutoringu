@@ -7,8 +7,10 @@
     Sutoringu.Play = function (game) {
         this.game = game;
         this.font = "48px Courier New";
-        this.gravity = 1000;
-        this.bounce = 0.4;
+        this.gravity = 100;
+        this.gravityRange = [100, 1000];
+        this.wordsDelayRange = [0.5, 3];
+        this.bounce = 0.5;
         this.loadedDictionary = null;
         this.platforms = null;
         this.texts = null;
@@ -19,11 +21,14 @@
         this.missedCharacters = [];
         this.deletableSprites = [];
         this.deletableTracks = [];
+        this.maxWordsDelaySec = 0;
         this.game = undefined;
+        this.isKanjiGameplay = undefined;
+        this.sliderValue = 0;
     };
 
     function updateScore(newScore) {
-        this.score = newScore;
+        this.score = Math.round(newScore);
         this.scoreText.text = 'Score: ' + this.score;
         if (this.loadedDictionary.length <= 0 && this.dictionary.length <= 0) {
             this.textInput.style.visibility = 'hidden';
@@ -32,6 +37,18 @@
                 this.forfeit();
             }.bind(this), 1000);
         }
+    }
+
+    function calculateScore(scorePercentage) {
+        return Math.round(10 + Math.pow(9.5 * scorePercentage, 2));
+    }
+
+    function calculateMaxWordDelay(value) {
+        return this.wordsDelayRange[1] - (this.wordsDelayRange[1] - this.wordsDelayRange[0]) * value;
+    }
+
+    function calculateSliderValue() {
+        return (this.gravity - this.gravityRange[0]) / (this.gravityRange[1] - this.gravityRange[0]);
     }
 
     Sutoringu.Play.prototype = {
@@ -44,25 +61,55 @@
             this.loadedDictionary = dictionary;
             this.gameMode = gameMode;
             this.score = 0;
+            this.isKanjiGameplay = gameMode.toLowerCase().includes('kanji');
+
+            if (this.isKanjiGameplay) {
+                this.wordsDelayRange[1] = 3;
+                this.maxWordsDelaySec = calculateMaxWordDelay.call(this, calculateSliderValue.call(this));
+            } else {
+                this.wordsDelayRange[1] = 1.5;
+                this.maxWordsDelaySec = calculateMaxWordDelay.call(this, calculateSliderValue.call(this));
+            }
         },
 
         preload: function () {
-            this.game.load.image('floor', 'assets/images/floor.png');
-            this.textInput = this.game.state.states['Boot'].textInput;
-            this.forfeitButton = this.game.state.states['Boot'].forfeitButton;
-            this.forfeitButton.style.visibility = 'visible';
-            this.textInput.style.visibility = 'visible';
-            this.textInput.focus();
+            this.slickUI = this.game.plugins.add(Phaser.Plugin.SlickUI);
+            this.slickUI.load('assets/theme/kenney.json');
         },
 
         create: function () {
+            setUpHtmlUI.call(this);
+            setUpSlider.call(this);
             setUpBackground(this.game);
             setUpFloor(this);
             setUpTexts(this);
             this.game.time.events.add(Phaser.Timer.SECOND, startGeneratingWords, this);
 
+            function setUpHtmlUI() {
+                this.textInput = this.game.state.states['Boot'].textInput;
+                this.forfeitButton = this.game.state.states['Boot'].forfeitButton;
+                this.forfeitButton.style.visibility = 'visible';
+                this.textInput.style.visibility = 'visible';
+                this.textInput.focus();
+            }
+
+            function setUpSlider() {
+                let slider = new SlickUI.Element.Slider(this.game.world.width - 150 - 32 + 8, 30, 150);
+                let value = calculateSliderValue.call(this);
+                slider._value = value;
+                this.sliderValue = value;
+                this.slickUI.add(slider);
+                slider.onDrag.add(onSpeedChange.bind(this));
+                slider.onDragStart.add(onSpeedChange.bind(this));
+                slider.onDragStop.add(onSpeedChange.bind(this));
+                function onSpeedChange(value) {
+                    this.gravity = this.gravityRange[0] + (this.gravityRange[1] - this.gravityRange[0]) * value;
+                    this.maxWordsDelaySec = calculateMaxWordDelay.call(this, value);
+                    this.sliderValue = value;
+                }
+            }
+
             function setUpBackground(game) {
-                game.stage.backgroundColor = 0xffffff;
                 const sakuraCanvas = game.make.bitmapData(game.world.width, game.world.height);
                 sakuraCanvas.ctx.globalAlpha = 0.5;
                 new Sakura(sakuraCanvas, '#ff000000', '#ffa7c5').create().paint();
@@ -81,13 +128,13 @@
             }
 
             function setUpTexts(play) {
-                play.texts = play.game.add.group();
-                play.texts.enableBody = true;
-                play.scoreText = play.game.add.text(16, 16, 'Score: 0', {
+                play.scoreText = play.game.add.text(8, 0, 'Score: 0', {
                     fontSize: '32px',
                     fill: '#000',
                     font: 'Candal'
                 });
+                play.texts = play.game.add.group();
+                play.texts.enableBody = true;
             }
 
             function startGeneratingWords() {
@@ -112,7 +159,7 @@
                 entry.textSprite = textSprite;
                 entry.gameText = text;
                 this.dictionary.push(entry);
-                this.game.time.events.add(Phaser.Timer.SECOND * (1 + Math.random()), startGeneratingWords, this);
+                this.game.time.events.add(Phaser.Timer.SECOND * (this.maxWordsDelaySec + Math.random()), startGeneratingWords, this);
             }
         },
 
@@ -131,7 +178,7 @@
             }
 
             function collisionHandler(textSprite, platform) {
-                if (textSprite.body.touching.down && Math.abs(textSprite.body.velocity.y) < 9) {
+                if (textSprite.body.touching.down && textSprite.body.hasCollided) {
                     textSprite.children[0].addColor('#666666', 0);
                     textSprite.checkWorldBounds = true;
                     textSprite.events.onOutOfBounds.add(function () {
@@ -147,7 +194,10 @@
                     }
                     this.deletableSprites.push(textSprite);
                     textSprite.body.collideWorldBounds = false;
-                    updateScore.call(this, this.score - 10);
+                    textSprite.body.velocity.y = -Math.sqrt(this.gravity / 2);
+                    updateScore.call(this, this.score - 10 * (1 + this.sliderValue));
+                } else {
+                    textSprite.body.hasCollided = true;
                 }
             }
 
@@ -190,7 +240,7 @@
         removeText: function (text) {
             for (let i = 0; i < this.dictionary.length; i++) {
                 let entry = this.dictionary[i];
-                if (inputMatches(text, entry, this.gameMode)) {
+                if (inputMatches(text, entry, this.isKanjiGameplay)) {
                     let textSprite = entry.textSprite;
                     textSprite.body.velocity.x = (textSprite.x < (this.game.world.width / 2)) ? -500 : 500;
                     textSprite.body.velocity.y = -500;
@@ -204,14 +254,16 @@
                         this.sprite.kill();
                     }, {context: this, sprite: textSprite});
                     this.dictionary.splice(i, 1);
-                    updateScore.call(this, this.score + 10);
+                    updateScore.call(this, this.score +
+                        (textSprite.body.hasCollided ? 10 * (1 + this.sliderValue)
+                            : calculateScore(1 - (textSprite.body.y - 32) / (this.game.world.height - 32)) * (1 + this.sliderValue)));
                     return true;
                 }
             }
             return false;
 
-            function inputMatches(input, entry, gameMode) {
-                if (gameMode.toLowerCase().includes('kanji')) {
+            function inputMatches(input, entry, isKanji) {
+                if (isKanji) {
                     input = input.toLowerCase();
                     for (let i = 0; i < entry.onyomi.length; i++) {
                         if (input === entry.onyomi[i].toLowerCase()) {
@@ -228,7 +280,8 @@
                     return entry.romaji.toLowerCase() === input.toLowerCase();
                 }
             }
-        },
+        }
+        ,
 
         forfeit: function () {
             this.textInput.style.visibility = 'hidden';
@@ -237,4 +290,5 @@
         }
 
     }
-})();
+})
+();
