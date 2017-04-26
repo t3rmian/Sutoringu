@@ -122,7 +122,7 @@
                     prefix = "</li><li>";
                 }
                 output += "</li></ol></div>";
-                document.getElementById('modal').style.display = "block";
+                document.getElementById('modal').style.display = "flex";
                 document.getElementById('modal-content').innerHTML = output;
                 setTimeout(function (context) {
                     context.missingButton.frame = 3;

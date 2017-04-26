@@ -55,7 +55,7 @@
             }
 
             function onAboutClick() {
-                document.getElementById('modal').style.display = "block";
+                document.getElementById('modal').style.display = "flex";
                 document.getElementById('modal-content').innerHTML =
                     "<div id='author' style='font-size: 1.5em;text-align: center;'>" +
                     "<img src='assets/images/favicon.ico' style='width: 64px;height: 64px;margin-bottom: 16px'/></br>" +
