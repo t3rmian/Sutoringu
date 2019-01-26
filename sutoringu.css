@@ -32,6 +32,8 @@ body {
 }
 
 #muteLabel {
+    background: white;
+    color: black;
     margin-right: 2em;
     margin-left: 0.75em;
 }
