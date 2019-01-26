@@ -188,6 +188,14 @@
                     }, {context: this, sprite: textSprite});
                     for (let i = 0; i < this.dictionary.length; i++) {
                         if (this.dictionary[i].textSprite === textSprite) {
+                            try {
+                                const msg = new SpeechSynthesisUtterance(this.dictionary[i].string);
+                                msg.rate = 1;
+                                msg.lang = 'ja-JP';
+                                window.speechSynthesis.speak(msg);
+                            } catch (e) {
+                                console.warn("Speech not supported")
+                            }
                             this.missedCharacters.push(this.dictionary[i]);
                             this.dictionary.splice(i, 1);
                             break;
