@@ -173,3 +173,8 @@ a:hover {
 a:active {
     color: #ff0000;
 }
+
+button {
+    width: 128px;
+    height: 30px;
+}

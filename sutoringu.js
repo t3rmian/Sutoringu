@@ -3,7 +3,13 @@
  */
 "use strict";
 let Sutoringu = function () {
-    this.game = new Phaser.Game(800, 600, Phaser.AUTO, 'game', false, false);
+    const width = 800;
+    const height = 600;
+    const uiHeight = 100;
+    this.game = new Phaser.Game(width, height, Phaser.AUTO, 'game', false, false);
+    this.game._uiHeight = uiHeight;
+    this.game._width = width;
+    this.game._height = height;
 };
 
 let jsonp = (function () {
@@ -12,9 +18,9 @@ let jsonp = (function () {
     call.send = function (src, options) {
         let callback_name = options.callbackName || 'callback',
             on_success = options.onSuccess || function () {
-                },
+            },
             on_timeout = options.onTimeout || function () {
-                },
+            },
             timeout = options.timeout || 30;
 
         let timeoutTrigger = window.setTimeout(function () {

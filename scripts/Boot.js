@@ -25,6 +25,8 @@
 
     Sutoringu.Boot.prototype = {
         preload: function () {
+            this.game.scale.scaleMode = Phaser.ScaleManager.USER_SCALE;
+            this.game.scale.setResizeCallback(this.resizeCallback, this);
             this.game.load.image('favicon', 'assets/images/favicon.ico', 256, 256);
             this.game.load.image('floor', 'assets/images/floor.png');
             this.game.load.spritesheet('button', 'assets/images/button.png', 384, 64);
@@ -75,8 +77,7 @@
                 const code = (e.keyCode ? e.keyCode : e.which);
                 if (code === 27) {
                     this.textInput.value = "";
-                }
-                else if (code === 13) {
+                } else if (code === 13) {
                     const text = this.textInput.value;
                     const removed = this.game.state.states[state].removeText(text);
                     if (removed) {
@@ -84,6 +85,31 @@
                     }
                 }
             }
+        },
+
+        resizeCallback: function () {
+            if (this.game._cacheWidth !== window.innerWidth || this.game._cacheHeight !== window.innerHeight) {
+                this.game._cacheWidth = window.innerWidth;
+                this.game._cacheHeight = window.innerHeight;
+            } else {
+                return
+            }
+            let gameWidth = this.game._width;
+            let uiHeight = this.game._uiHeight;
+            let gameHeight = this.game._height;
+            let ratio = gameWidth / gameHeight;
+            if (window.innerHeight < (gameHeight + uiHeight) || window.innerWidth < gameWidth) {
+                if (window.innerWidth < (window.innerHeight - uiHeight) * ratio) {
+                    gameHeight = window.innerWidth / ratio;
+                    gameWidth = window.innerWidth;
+                } else {
+                    gameHeight = window.innerHeight - uiHeight;
+                    gameWidth = (window.innerHeight - uiHeight) * ratio;
+                }
+            }
+            this.game.scale.maxHeight = gameHeight;
+            this.game.scale.maxWidth = gameWidth;
+            this.game.scale.refresh();
         }
     }
 

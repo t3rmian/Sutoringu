@@ -102,6 +102,7 @@
                 slider.onDrag.add(onSpeedChange.bind(this));
                 slider.onDragStart.add(onSpeedChange.bind(this));
                 slider.onDragStop.add(onSpeedChange.bind(this));
+
                 function onSpeedChange(value) {
                     this.gravity = this.gravityRange[0] + (this.gravityRange[1] - this.gravityRange[0]) * value;
                     this.maxWordsDelaySec = calculateMaxWordDelay.call(this, value);
