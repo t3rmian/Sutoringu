@@ -39,6 +39,9 @@
                     verticalPosition,
                     "button", this.labels[i], onGameplayClick, 1, 0, 2);
             }
+            if (window.location.hash === "#about") {
+                onAboutClick(false);
+            }
 
             this.aboutButton = new LabelButton(this.game, horizontalCenter,
                 verticalPosition + 64 + 32 + 32,
@@ -54,12 +57,16 @@
                 this.game.state.start('AdvancedMenu', true, false, this.label.text);
             }
 
-            function onAboutClick() {
+            function onAboutClick(userClick) {
+                window.location.hash = "about";
+                if (userClick) {
+                    window.history.replaceState({generatedInternally: true}, window.title, window.location.search + window.location.hash);
+                }
                 document.getElementById('modal').style.display = "flex";
                 document.getElementById('modal-content').innerHTML =
                     "<div id='author' style='font-size: 1.5em;text-align: center;'>" +
                     "<img src='assets/images/favicon.ico' style='width: 64px;height: 64px;margin-bottom: 16px'/></br>" +
-                    "<b>Sutoringu v1.1.5</br>Created by <a href='https://t3r1jj.github.io' style='color: #ff0044;text-decoration: none'>T3r1jj</a>" +
+                    "<b>Sutoringu v1.1.6</br>Created by <a href='https://t3r1jj.github.io' style='color: #ff0044;text-decoration: none'>T3r1jj</a>" +
                     "<br/>Attributions; build on:</b>" +
                     "<div style='text-align: center'>" +
                     "<ul style='font-size: 0.67em;text-align: left;margin-top: 0'>" +

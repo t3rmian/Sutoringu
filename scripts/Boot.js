@@ -45,7 +45,12 @@
             this.game.state.start('Menu');
             let modal = document.getElementById('modal');
             let span = document.getElementsByClassName("close")[0];
+            window.addEventListener('popstate', function (event) {
+                removeAboutHash();
+                modal.style.display = "none";
+            });
             span.onclick = function () {
+                removeAboutHash();
                 modal.style.display = "none";
             };
             this.forfeitButton.addEventListener("click", function forfeit() {
@@ -56,12 +61,14 @@
             }.bind(this));
             window.onclick = function (event) {
                 if (event.target === modal) {
+                    removeAboutHash();
                     modal.style.display = "none";
                 }
             };
             document.addEventListener("keydown", function keyDownTextField(e) {
                 var keyCode = e.keyCode;
                 if (keyCode == 27) {
+                    removeAboutHash();
                     modal.style.display = "none";
                 }
             }, false);
@@ -71,6 +78,14 @@
                 const aParent = a.parentNode;
                 const aSibling = aParent.getElementsByTagName('canvas')[0];
                 aParent.insertBefore(aSibling, a);
+            }
+
+            function removeAboutHash() {
+                if (window.history.state && window.history.state.generatedInternally) {
+                    window.history.back();
+                } else {
+                    history.replaceState(null, null, ' ');
+                }
             }
         },
 
