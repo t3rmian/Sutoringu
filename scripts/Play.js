@@ -33,6 +33,8 @@
         if (this.loadedDictionary.length <= 0 && this.dictionary.length <= 0) {
             this.textInput.style.visibility = 'hidden';
             this.forfeitButton.style.visibility = 'hidden';
+            this.muteLabelButton.style.visibility = 'hidden';
+            this.muteButton.style.visibility = 'hidden';
             setTimeout(function () {
                 this.forfeit();
             }.bind(this), 1000);
@@ -88,7 +90,11 @@
             function setUpHtmlUI() {
                 this.textInput = this.game.state.states['Boot'].textInput;
                 this.forfeitButton = this.game.state.states['Boot'].forfeitButton;
+                this.muteButton = this.game.state.states['Boot'].muteButton;
+                this.muteLabel = this.game.state.states['Boot'].muteLabel;
                 this.forfeitButton.style.visibility = 'visible';
+                this.muteButton.style.visibility = 'visible';
+                this.muteLabel.style.visibility = 'visible';
                 this.textInput.style.visibility = 'visible';
                 this.textInput.focus();
             }
@@ -188,6 +194,9 @@
                     }, {context: this, sprite: textSprite});
                     for (let i = 0; i < this.dictionary.length; i++) {
                         if (this.dictionary[i].textSprite === textSprite) {
+                            this.missedCharacters.push(this.dictionary[i]);
+                            this.dictionary.splice(i, 1);
+                            if (this.muteButton.checked) break;
                             try {
                                 const msg = new SpeechSynthesisUtterance(this.dictionary[i].string);
                                 msg.rate = 1;
@@ -196,8 +205,6 @@
                             } catch (e) {
                                 console.warn("Speech not supported")
                             }
-                            this.missedCharacters.push(this.dictionary[i]);
-                            this.dictionary.splice(i, 1);
                             break;
                         }
                     }
@@ -295,6 +302,8 @@
         forfeit: function () {
             this.textInput.style.visibility = 'hidden';
             this.forfeitButton.style.visibility = 'hidden';
+            this.muteLabel.style.visibility = 'hidden';
+            this.muteButton.style.visibility = 'hidden';
             this.game.state.start('GameOver', true, false, this.score, this.missedCharacters, this.gameMode);
         }
 

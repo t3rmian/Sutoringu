@@ -8,6 +8,7 @@
         this.game = game;
         this.textInput = null;
         this.forfeitButton = null;
+        this.muteButton = null;
         this.sakuraFallOptions = {
             // blowAnimations: [
             //     'blow-soft-left',
@@ -35,7 +36,10 @@
         create: function () {
             this.game.stage.backgroundColor = 0xffffff;
             this.forfeitButton = document.getElementById('forfeit');
+            this.muteButton = document.getElementById('mute');
+            this.muteLabel = document.getElementById('muteLabel');
             this.textInput = document.getElementById("textInput");
+            this.muteButton.checked = !this.game.device.desktop;
             this.textInput.addEventListener("keydown", this.onKeyPressed.bind(this));
             swapWithCanvas(this.textInput);
             this.game.state.start('Menu');
