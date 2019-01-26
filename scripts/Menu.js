@@ -59,11 +59,11 @@
                 document.getElementById('modal-content').innerHTML =
                     "<div id='author' style='font-size: 1.5em;text-align: center;'>" +
                     "<img src='assets/images/favicon.ico' style='width: 64px;height: 64px;margin-bottom: 16px'/></br>" +
-                    "<b>Sutoringu v1.1.1</br>Created by <a href='https://t3r1jj.github.io' style='color: #ff0044;text-decoration: none'>T3r1jj</a>" +
+                    "<b>Sutoringu v1.1.3</br>Created by <a href='https://t3r1jj.github.io' style='color: #ff0044;text-decoration: none'>T3r1jj</a>" +
                     "<br/>Attributions; build on:</b>" +
                     "<div style='text-align: center'>" +
                     "<ul style='font-size: 0.67em;text-align: left;margin-top: 0'>" +
-                    "<li><a href='https://phaser.io/'>Phaser</a> CE v2.7.6 - Copyright (c) 2017 Richard Davey, Photon Storm Ltd. [MIT]</li>" +
+                    "<li><a href='https://phaser.io/'>Phaser</a> v2.6.2 - Copyright (c) 2017 Richard Davey, Photon Storm Ltd. [MIT]</li>" +
                     "<li><a href='https://github.com/Flaxis/slick-ui'>SlickUI</a> Phaser plugin - Flaxis [Public Domain]</li>" +
                     "<li><a href='https://github.com/timoschaefer/jQuery-Sakura'>jQuery-Sakura</a> - Copyright (c) 2014 Timo Schäfer [MIT]</li>" +
                     "<li>Image assets - <a href='https://pixabay.com/'>Pixabay</a> [CC0 Public Domain]</li>" +

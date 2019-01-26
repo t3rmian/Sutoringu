@@ -33,7 +33,7 @@
         if (this.loadedDictionary.length <= 0 && this.dictionary.length <= 0) {
             this.textInput.style.visibility = 'hidden';
             this.forfeitButton.style.visibility = 'hidden';
-            this.muteLabelButton.style.visibility = 'hidden';
+            this.muteLabel.style.visibility = 'hidden';
             this.muteButton.style.visibility = 'hidden';
             setTimeout(function () {
                 this.forfeit();
