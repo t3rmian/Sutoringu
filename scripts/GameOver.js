@@ -111,14 +111,23 @@
             }
 
             function onMissedClick() {
+                function getFormattedCharacter(entry, isKanji) {
+                    const commonStyle = "font-size: 1.3em;color: #ff0044;";
+                    return isKanji ? "<b><a title='" + entry.string + " in Jisho dictionary'" +
+                        "style='" + commonStyle + " text-decoration: none' href='//jisho.org/search/" + entry.string + "%20%23kanji' rel='noopener noreferrer' target='_blank'>"
+                        + entry.string + "</a></b>" :
+                        "<b style='" + commonStyle + "'>" + entry.string + "</b>";
+                }
+
                 let isKanji = this.context.gameMode.toLowerCase().includes('kanji');
-                let output = "<div style='font-size: 1.3em; text-align: center;'><b>Missed " + (isKanji ? "words" : "characters")
+                let output = "<div style='font-size: 1.3em; text-align: center;'><b>Missed " + (isKanji ? "kanji" : "kana")
                     + " (" + this.context.gameMode + "):</b><ol style='text-align: left'>";
+
                 let prefix = "<li>";
 
                 for (let i = 0; i < this.context.missedCharacters.length; i++) {
                     let entry = this.context.missedCharacters[i];
-                    output += prefix + "<b style='font-size: 1.3em;color: #ff0044;'>" + entry.string + "</b>" + getMissedItemDescription(entry, isKanji);
+                    output += prefix + getFormattedCharacter(entry, isKanji) + getMissedItemDescription(entry, isKanji);
                     prefix = "</li><li>";
                 }
                 output += "</li></ol></div>";
