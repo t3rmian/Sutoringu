@@ -59,7 +59,7 @@
                 document.getElementById('modal-content').innerHTML =
                     "<div id='author' style='font-size: 1.5em;text-align: center;'>" +
                     "<img src='assets/images/favicon.ico' style='width: 64px;height: 64px;margin-bottom: 16px'/></br>" +
-                    "<b>Sutoringu v1.1.3</br>Created by <a href='https://t3r1jj.github.io' style='color: #ff0044;text-decoration: none'>T3r1jj</a>" +
+                    "<b>Sutoringu v1.1.4</br>Created by <a href='https://t3r1jj.github.io' style='color: #ff0044;text-decoration: none'>T3r1jj</a>" +
                     "<br/>Attributions; build on:</b>" +
                     "<div style='text-align: center'>" +
                     "<ul style='font-size: 0.67em;text-align: left;margin-top: 0'>" +

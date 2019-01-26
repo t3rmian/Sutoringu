@@ -3,7 +3,7 @@
  */
 'use strict';
 let LabelButton = function (game, x, y, key, label, onClick, overFrame, outFrame, downFrame, context, vertical) {
-    Phaser.Button.call(this, game, x, y, key, onClick, this, overFrame, outFrame, downFrame, null);
+    Phaser.Button.call(this, game, x, y, key, onClick, this, overFrame, outFrame, downFrame, outFrame);
     this.style = {'font': '32px Candal', 'fill': 'white'};
     this.anchor.setTo(0.5, 0.5);
     if (vertical) {

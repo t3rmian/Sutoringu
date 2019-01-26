@@ -166,7 +166,7 @@
                 entry.textSprite = textSprite;
                 entry.gameText = text;
                 this.dictionary.push(entry);
-                this.game.time.events.add(Phaser.Timer.SECOND * (this.maxWordsDelaySec + Math.random()), startGeneratingWords, this);
+                this.game.time.events.add(Phaser.Timer.SECOND * (this.maxWordsDelaySec + Math.random() + Math.random()), startGeneratingWords, this);
             }
         },
 
@@ -195,10 +195,10 @@
                     for (let i = 0; i < this.dictionary.length; i++) {
                         if (this.dictionary[i].textSprite === textSprite) {
                             this.missedCharacters.push(this.dictionary[i]);
-                            this.dictionary.splice(i, 1);
+                            let item = this.dictionary.splice(i, 1)[0];
                             if (this.muteButton.checked) break;
                             try {
-                                const msg = new SpeechSynthesisUtterance(this.dictionary[i].string);
+                                const msg = new SpeechSynthesisUtterance(item.string);
                                 msg.rate = 1;
                                 msg.lang = 'ja-JP';
                                 window.speechSynthesis.speak(msg);
