@@ -157,3 +157,19 @@ canvas {
         transform: translate(-50%, -50%) rotate(135deg) scaleX(-1);
     }
 }
+
+a:link {
+    color: #ff0055;
+}
+
+a:visited {
+    color: #aa0022;
+}
+
+a:hover {
+    color: #ff0033;
+}
+
+a:active {
+    color: #ff0000;
+}

@@ -59,10 +59,10 @@
                 document.getElementById('modal-content').innerHTML =
                     "<div id='author' style='font-size: 1.5em;text-align: center;'>" +
                     "<img src='assets/images/favicon.ico' style='width: 64px;height: 64px;margin-bottom: 16px'/></br>" +
-                    "<b>Sutoringu v1.0.0</br>Created by <a href='https://t3r1jj.github.io'>Damian Terlecki</a></b>" +
-                    "<div id='author-loader' class='author-loader' style='margin-left: auto;margin-right:auto;margin-top: 8px;'></div></br>" +
-                    "<div style='text-align: center'><b>Attributions; build on:</b>" +
-                    "<ul style='font-size: 0.67em;text-align: left'>" +
+                    "<b>Sutoringu v1.1.0</br>Created by <a href='https://t3r1jj.github.io' style='color: #ff0044;text-decoration: none'>T3r1jj</a>" +
+                    "<br/>Attributions; build on:</b>" +
+                    "<div style='text-align: center'>" +
+                    "<ul style='font-size: 0.67em;text-align: left;margin-top: 0'>" +
                     "<li><a href='https://phaser.io/'>Phaser</a> CE v2.7.6 - Copyright (c) 2017 Richard Davey, Photon Storm Ltd. [MIT]</li>" +
                     "<li><a href='https://github.com/Flaxis/slick-ui'>SlickUI</a> Phaser plugin - Flaxis [Public Domain]</li>" +
                     "<li><a href='https://github.com/timoschaefer/jQuery-Sakura'>jQuery-Sakura</a> - Copyright (c) 2014 Timo Schäfer [MIT]</li>" +
@@ -73,34 +73,6 @@
                     "<li>Molle - Copyright (c) 2012 by Sorkin Type Co (www.sorkintype.com) [OFL]</li></ul></li>" +
                     "<li><a href='https://github.com/satazor/js-spark-md5'>SparkMD5</a> - Copyright (c) 2015 André Cruz (amdfcruz@gmail.com) [WTF2/MIT]</li>" +
                     "</ul></div>";
-                setTimeout(function (context) {
-                    context.aboutButton.frame = 3;
-                    context.aboutButton.resetFrame();
-                }, 10, this.context);
-                let url = 'https://script.google.com/macros/s/AKfycbyu4wyBly1IlJbHQpbs9TFBUOO7MyjWT-flleHMjcD1h7J3crR3/exec';
-                let callbackName = 'onAboutReceiveInfo';
-                if (this.context.authorData !== null) {
-                    let elementById = document.getElementById('author-loader');
-                    elementById.classList.remove('author-loader');
-                    elementById.innerHTML += this.context.authorData;
-                } else {
-                    jsonp.send(url + "?callback=" + callbackName, {
-                        callbackName: callbackName,
-                        onSuccess: function (json) {
-                            let elementById = document.getElementById('author-loader');
-                            elementById.classList.remove('author-loader');
-                            elementById.innerHTML += json.data;
-                            this.context.authorData = json.data;
-                        },
-                        onTimeout: function () {
-                            let elementById = document.getElementById('author-loader');
-                            elementById.classList.remove('author-loader');
-                            elementById.innerText = "Connection to the server has been lost";
-                        },
-                        timeout: 30,
-                        context: this
-                    });
-                }
             }
         }
     };
